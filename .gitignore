@@ -1,55 +1,28 @@
-# Prerequisites
-*.d
+# Ignore all files ending with ...
+*~
+*.bak
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Ignore specific directories anywhere in the directory tree
+**/.devcontainer
+**/.vscode
+**/build/
+**/managed_components/
+**/depo/
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# Ignore specific files anywhere in the directory tree
+**/wifi_credentials.h
+**/network_config.h
+**/sdkconfig
+**/sdkconfig.old
+**/dependencies.lock
+**/idf_component.yml
+**/.codex
 
-# Precompiled Headers
-*.gch
-*.pch
+# Ignore specific directories
+sparknode_cam_wifi/frames/
+system/ota
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
-
-# debug information files
-*.dwo
+# Ignore specific files
+sparknode_cam_wifi/dependencies.lock
+sparknode_cam_wifi/main/idf_component.yml
+sparknode_cam_wifi/managed_components/
