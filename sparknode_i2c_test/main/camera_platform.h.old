@@ -1,0 +1,26 @@
+// camera_platform.h - Homing and 45° index control for rotating camera platform
+#pragma once
+
+#include <stdint.h>
+#include "driver/gpio.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+#include "freertos/task.h"
+#include "drv8830.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Public API
+void camera_platform_init(i2c_master_dev_handle_t cam_motor_handle);
+// Start continuous step-through of all 8 positions (0..7) after homing.
+void camera_platform_start(void);
+// Request move to a specific index (0..7) from current position (non-blocking).
+esp_err_t camera_platform_goto(uint8_t target_index);
+// Return latest known index (0..7) after homing; 0xFF if not homed yet.
+uint8_t camera_platform_current_index(void);
+
+#ifdef __cplusplus
+}
+#endif

@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+
+import socket
+import datetime
+
+# Create UDP socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.bind(('0.0.0.0', 10001))
+
+# Generate unique log file name with timestamp
+import os
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+log_dir = os.path.expanduser("~/tmp")
+os.makedirs(log_dir, exist_ok=True)
+log_file_path = os.path.join(log_dir, f"log_{timestamp}.txt")
+log_file = open(log_file_path, "a")
+print(f"Listening for UDP datagrams on port 10001...")
+print(f"Logging to {log_file_path}")
+
+try:
+    while True:
+        data, addr = sock.recvfrom(65535)  # Max UDP datagram size
+        msg = f'[{addr[0]}:{addr[1]}] {data.decode("utf-8", errors="ignore")}'
+        print(msg, end='')
+        log_file.write(msg)
+        log_file.flush()
+        # print(f"{len(data)} {addr}: {data}")        
+except KeyboardInterrupt:
+    print("\nStopped by user.")
+finally:
+    log_file.close()
+    sock.close()

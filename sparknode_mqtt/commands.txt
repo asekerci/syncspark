@@ -1,0 +1,12 @@
+idf.py build
+../system/utilities/prep_ota_bin.sh 7
+python3 -m http.server --bind 0.0.0.0 8000 --directory /Users/vedant/Documents/research/syncspark/system/ota
+brew services restart mosquitto
+mosquitto_pub -h localhost -t "arena/sparknode07/cmd" -m "(commmand)"
+
+
+mosquitto_pub -h 192.168.11.100 -t "arena/sparknode07/cmd" -m "config set calibration 1 1.04"
+
+mosquitto_pub -h 192.168.11.100 -t "arena/sparknode07/cmd" -m "turn left 30 20"
+
+mosquitto_pub -h 192.168.11.100 -t "arena/sparknode07/cmd" -m "turn right 30 20"
