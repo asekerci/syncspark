@@ -1,770 +1,0 @@
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x1b (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:1
-load:0x3fff0030,len:6368
-load:0x40078000,len:15848
-load:0x40080400,len:3860
-0x40080400: _invalid_pc_placeholder at /home/ismet/esp/esp-idf/components/xtensa/xtensa_vectors.S:2235
-entry 0x40080638
-[0;32mI (27) boot: ESP-IDF v5.5-dev-2182-ga6c3a9cbbb 2nd stage bootloader[0m
-[0;32mI (27) boot: compile time Aug 13 2025 21:02:50[0m
-[0;32mI (28) boot: Multicore bootloader[0m
-[0;32mI (30) boot: chip revision: v3.0[0m
-[0;32mI (33) boot.esp32: SPI Speed      : 80MHz[0m
-[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
-[0;32mI (40) boot.esp32: SPI Flash Size : 4MB[0m
-[0;32mI (44) boot: Enabling RNG early entropy source...[0m
-[0;32mI (49) boot: Partition Table:[0m
-[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 000f8000[0m
-[0;32mI (77) boot:  3 ota_data         OTA data         01 00 00108000 00002000[0m
-[0;32mI (84) boot:  4 ota_0            OTA app          00 10 00110000 002f0000[0m
-[0;32mI (90) boot: End of partition table[0m
-[0;32mI (93) boot: Defaulting to factory image[0m
-[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=23fb8h (147384) map[0m
-[0;32mI (146) esp_image: segment 1: paddr=00033fe0 vaddr=3ff80068 size=0001ch (    28) load[0m
-[0;32mI (146) esp_image: segment 2: paddr=00034004 vaddr=3ffb0000 size=03fe0h ( 16352) load[0m
-[0;32mI (155) esp_image: segment 3: paddr=00037fec vaddr=40080000 size=0802ch ( 32812) load[0m
-[0;32mI (168) esp_image: segment 4: paddr=00040020 vaddr=400d0020 size=a68d4h (682196) map[0m
-[0;32mI (361) esp_image: segment 5: paddr=000e68fc vaddr=4008802c size=14824h ( 84004) load[0m
-[0;32mI (389) esp_image: segment 6: paddr=000fb128 vaddr=400c0000 size=00068h (   104) load[0m
-[0;32mI (403) boot: Loaded app from partition at offset 0x10000[0m
-[0;32mI (403) boot: Disabling RNG early entropy source...[0m
-[0;32mI (413) quad_psram: This chip is ESP32-D0WD[0m
-[0;32mI (414) esp_psram: Found 2MB PSRAM device[0m
-[0;32mI (414) esp_psram: Speed: 80MHz[0m
-[0;32mI (414) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
-[0;32mI (421) cpu_start: Multicore app[0m
-[0;32mI (690) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (698) cpu_start: Pro cpu start user code[0m
-[0;32mI (698) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (698) app_init: Application information:[0m
-[0;32mI (698) app_init: Project name:     sparknode_ota_updater[0m
-[0;32mI (704) app_init: App version:      ota_update_scheme_1-38-ge8dd2f9[0m
-[0;32mI (709) app_init: Compile time:     Aug 13 2025 21:02:35[0m
-[0;32mI (715) app_init: ELF file SHA256:  ae848acb8...[0m
-[0;32mI (719) app_init: ESP-IDF:          v5.5-dev-2182-ga6c3a9cbbb[0m
-[0;32mI (724) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (728) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (732) efuse_init: Chip rev:         v3.0[0m
-[0;32mI (736) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (742) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (747) heap_init: At 3FFB8928 len 000276D8 (157 KiB): DRAM[0m
-[0;32mI (753) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (758) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (764) heap_init: At 4009C850 len 000037B0 (13 KiB): IRAM[0m
-[0;32mI (769) esp_psram: Adding pool of 2048K of PSRAM memory to heap allocator[0m
-[0;32mI (776) spi_flash: detected chip: generic[0m
-[0;32mI (779) spi_flash: flash io: dio[0m
-[0;32mI (783) main_task: Started on CPU0[0m
-[0;32mI (793) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (793) main_task: Calling app_main()[0m
-[0;32mI (793) esp32_info: CPU Clock Frequency: 240 MHz[0m
-[0;32mI (793) esp32_info: This is an esp32 chip with 2 CPU core(s) with  WiFi BT BLE [0m
-[0;32mI (803) esp32_info: Silicon revision: v3.0 [0m
-[0;32mI (803) esp32_info: Base MAC address: C0:49:EF:D2:0F:D0[0m
-[0;32mI (813) esp32_info: SRAM Size: 335 KB (Total), 282 KB (Free)[0m
-[0;32mI (813) esp32_info: Minimum free heap size: 2338880 bytes[0m
-[0;32mI (823) esp32_info: Free heap: 2338880[0m
-[0;32mI (823) esp32_info: Free internal heap: 275907[0m
-[0;32mI (833) esp32_info: Total PSRAM: 2 MB[0m
-[0;32mI (833) esp32_info: Free PSRAM: 1 MB[0m
-[0;32mI (833) esp32_info: Flash memory: 4 MB external [0m
-[0;32mI (843) esp32_info: WiFi MAC Address= C0:49:EF:D2:0F:D0[0m
-[0;32mI (843) esp32_info: BlueTooth MAC Address= C0:49:EF:D2:0F:D2[0m
-[0;32mI (873) led_control: Initializing GPIOs for LEDs[0m
-[0;32mI (873) gpio: GPIO[4]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (873) gpio: GPIO[33]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (883) led_control: Testing LEDS[0m
-[0;32mI (2143) wifi_net: Initializing Wi-Fi in station mode...[0m
-[0;32mI (2153) wifi:wifi driver task: 3ffc09ac, prio:23, stack:6656, core=0[0m
-[0;32mI (2153) wifi:wifi firmware version: fe7fdd4[0m
-[0;32mI (2153) wifi:wifi certification version: v7.0[0m
-[0;32mI (2163) wifi:config NVS flash: enabled[0m
-[0;32mI (2163) wifi:config nano formatting: disabled[0m
-[0;32mI (2163) wifi:Init data frame dynamic rx buffer num: 32[0m
-[0;32mI (2163) wifi:Init static rx mgmt buffer num: 5[0m
-[0;32mI (2173) wifi:Init management short buffer num: 32[0m
-[0;32mI (2173) wifi:Init dynamic tx buffer num: 32[0m
-[0;32mI (2183) wifi:Init static rx buffer size: 1600[0m
-[0;32mI (2183) wifi:Init static rx buffer num: 10[0m
-[0;32mI (2193) wifi:Init dynamic rx buffer num: 32[0m
-[0;32mI (2193) wifi_init: rx ba win: 6[0m
-[0;32mI (2193) wifi_init: accept mbox: 6[0m
-[0;32mI (2203) wifi_init: tcpip mbox: 32[0m
-[0;32mI (2203) wifi_init: udp mbox: 6[0m
-[0;32mI (2203) wifi_init: tcp mbox: 6[0m
-[0;32mI (2203) wifi_init: tcp tx win: 5760[0m
-[0;32mI (2213) wifi_init: tcp rx win: 5760[0m
-[0;32mI (2213) wifi_init: tcp mss: 1440[0m
-[0;32mI (2213) wifi_init: WiFi IRAM OP enabled[0m
-[0;32mI (2223) wifi_init: WiFi RX IRAM OP enabled[0m
-[0;33mW (2223) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
-[0;32mI (2243) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
-[0;32mI (2303) wifi:mode : sta (c0:49:ef:d2:0f:d0)[0m
-[0;32mI (2303) wifi:enable tsf[0m
-[0;32mI (2303) wifi_net: wifi_sta initalization is complete, waiting for connection...[0m
-[0;32mI (2313) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (2313) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (2323) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (2323) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (2343) wifi:<ba-add>idx:0 (ifx:0, 5c:63:bf:c7:8e:d9), tid:0, ssn:0, winSize:64[0m
-[0;32mI (2363) wifi:connected with TurkTelekom_TEFC5, aid = 13, channel 11, BW20, bssid = 5c:63:bf:c7:8e:d9[0m
-[0;32mI (2363) wifi:security: WPA2-PSK, phy: bgn, rssi: -50[0m
-[0;32mI (2373) wifi:pm start, type: 1[0m
-
-[0;32mI (2373) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (2383) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
-[0;32mI (3903) esp_netif_handlers: sta ip: 192.168.1.115, mask: 255.255.255.0, gw: 192.168.1.1[0m
-[0;32mI (3903) wifi_net: Got IP: 192.168.1.115[0m
-[0;32mI (4903) UDP_LOG: UDP logging initialized to 192.168.1.108:10001[0m
-[0;32mI (4903) sparknode_ota_updater: Redirecting/copying log messages over UDP...[0m
-[0;32mI (4903) sparknode_ota_updater: Connected to TurkTelekom_TEFC5[0m
-[0;32mI (4903) sparknode_ota_updater: RSSI: -56 dBm[0m
-[0;32mI (4913) sparknode_ota_updater: SparkNode ID= 3[0m
-[0;32mI (4913) sparknode_ota_updater: Attempt 1 to fetch the remote MD5 checksum[0m
-[0;32mI (4923) UDP_LOG: UDP logging initialized to 192.168.1.108:10001[0m
-[0;32mI (4923) remote_rw: Opening HTTP connection to http://192.168.1.108:8000/app.md5[0m
-[0;32mI (5693) UDP_LOG: UDP logging initialized to 192.168.1.108:10001[0m
-[0;32mI (5693) sparknode_ota_updater: Read checksum from remote: 2e1977f2078ce97fe7a3d3f84fefa13e (Length: 32)[0m
-[0;32mI (5703) sparknode_ota_updater: Remote checksum --> 2e1977f2078ce97fe7a3d3f84fefa13e[0m
-[0;32mI (5713) sparknode_ota_updater: Stored checksum --> f346515fe98264e5a39c824c7b82c087[0m
-[0;32mI (5713) sparknode_ota_updater: Remote checksum does not match the stored checksum in NVS, update needed[0m
-[0;32mI (5723) sparknode_ota_updater: Attempt 1 to fetch the firmware binary[0m
-[0;32mI (5733) remote_rw: Opening HTTP connection to http://192.168.1.108:8000/app.bin[0m
-Chunks written: 1, Total bytes read: 1024Chunks written: 2, Total bytes read: 2048Chunks written: 3, Total bytes read: 3072Chunks written: 4, Total bytes read: 4096Chunks written: 5, Total bytes read: 5120Chunks written: 6, Total bytes read: 6144Chunks written: 7, Total bytes read: 7168Chunks written: 8, Total bytes read: 8192Chunks written: 9, Total bytes read: 9216Chunks written: 10, Total bytes read: 10240Chunks written: 11, Total bytes read: 11264Chunks written: 12, Total bytes read: 12288Chunks written: 13, Total bytes read: 13312Chunks written: 14, Total bytes read: 14336Chunks written: 15, Total bytes read: 15360Chunks written: 16, Total bytes read: 16384Chunks written: 17, Total bytes read: 17408Chunks written: 18, Total bytes read: 18432Chunks written: 19, Total bytes read: 19456Chunks written: 20, Total bytes read: 20480Chunks written: 21, Total bytes read: 21504Chunks written: 22, Total bytes read: 22528Chunks written: 23, Total bytes read: 23552Chunks written: 24, Total bytes read: 24576Chunks written: 25, Total bytes read: 25600Chunks written: 26, Total bytes read: 26624Chunks written: 27, Total bytes read: 27648Chunks written: 28, Total bytes read: 28672Chunks written: 29, Total bytes read: 29696Chunks written: 30, Total bytes read: 30720Chunks written: 31, Total bytes read: 31744Chunks written: 32, Total bytes read: 32768Chunks written: 33, Total bytes read: 33792Chunks written: 34, Total bytes read: 34816Chunks written: 35, Total bytes read: 35840Chunks written: 36, Total bytes read: 36864Chunks written: 37, Total bytes read: 37888Chunks written: 38, Total bytes read: 38912Chunks written: 39, Total bytes read: 39936Chunks written: 40, Total bytes read: 40960Chunks written: 41, Total bytes read: 41984Chunks written: 42, Total bytes read: 43008Chunks written: 43, Total bytes read: 44032Chunks written: 44, Total bytes read: 45056Chunks written: 45, Total bytes read: 46080Chunks written: 46, Total bytes read: 47104Chunks written: 47, Total bytes read: 48128Chunks written: 48, Total bytes read: 49152Chunks written: 49, Total bytes read: 50176Chunks written: 50, Total bytes read: 51200Chunks written: 51, Total bytes read: 52224Chunks written: 52, Total bytes read: 53248Chunks written: 53, Total bytes read: 54272Chunks written: 54, Total bytes read: 55296Chunks written: 55, Total bytes read: 56320Chunks written: 56, Total bytes read: 57344Chunks written: 57, Total bytes read: 58368Chunks written: 58, Total bytes read: 59392Chunks written: 59, Total bytes read: 60416Chunks written: 60, Total bytes read: 61440Chunks written: 61, Total bytes read: 62464Chunks written: 62, Total bytes read: 63488Chunks written: 63, Total bytes read: 64512Chunks written: 64, Total bytes read: 65536Chunks written: 65, Total bytes read: 66560Chunks written: 66, Total bytes read: 67584Chunks written: 67, Total bytes read: 68608Chunks written: 68, Total bytes read: 69632Chunks written: 69, Total bytes read: 70656Chunks written: 70, Total bytes read: 71680Chunks written: 71, Total bytes read: 72704Chunks written: 72, Total bytes read: 73728Chunks written: 73, Total bytes read: 74752Chunks written: 74, Total bytes read: 75776Chunks written: 75, Total bytes read: 76800Chunks written: 76, Total bytes read: 77824Chunks written: 77, Total bytes read: 78848Chunks written: 78, Total bytes read: 79872Chunks written: 79, Total bytes read: 80896Chunks written: 80, Total bytes read: 81920Chunks written: 81, Total bytes read: 82944Chunks written: 82, Total bytes read: 83968Chunks written: 83, Total bytes read: 84992Chunks written: 84, Total bytes read: 86016Chunks written: 85, Total bytes read: 87040Chunks written: 86, Total bytes read: 88064Chunks written: 87, Total bytes read: 89088Chunks written: 88, Total bytes read: 90112Chunks written: 89, Total bytes read: 91136Chunks written: 90, Total bytes read: 92160Chunks written: 91, Total bytes read: 93184Chunks written: 92, Total bytes read: 94208Chunks written: 93, Total bytes read: 95232Chunks written: 94, Total bytes read: 96256Chunks written: 95, Total bytes read: 97280Chunks written: 96, Total bytes read: 98304Chunks written: 97, Total bytes read: 99328Chunks written: 98, Total bytes read: 100352Chunks written: 99, Total bytes read: 101376Chunks written: 100, Total bytes read: 102400Chunks written: 101, Total bytes read: 103424Chunks written: 102, Total bytes read: 104448Chunks written: 103, Total bytes read: 105472Chunks written: 104, Total bytes read: 106496Chunks written: 105, Total bytes read: 107520Chunks written: 106, Total bytes read: 108544Chunks written: 107, Total bytes read: 109568Chunks written: 108, Total bytes read: 110592Chunks written: 109, Total bytes read: 111616Chunks written: 110, Total bytes read: 112640Chunks written: 111, Total bytes read: 113664Chunks written: 112, Total bytes read: 114688Chunks written: 113, Total bytes read: 115712Chunks written: 114, Total bytes read: 116736Chunks written: 115, Total bytes read: 117760Chunks written: 116, Total bytes read: 118784Chunks written: 117, Total bytes read: 119808Chunks written: 118, Total bytes read: 120832Chunks written: 119, Total bytes read: 121856Chunks written: 120, Total bytes read: 122880Chunks written: 121, Total bytes read: 123904Chunks written: 122, Total bytes read: 124928Chunks written: 123, Total bytes read: 125952Chunks written: 124, Total bytes read: 126976Chunks written: 125, Total bytes read: 128000Chunks written: 126, Total bytes read: 129024Chunks written: 127, Total bytes read: 130048Chunks written: 128, Total bytes read: 131072Chunks written: 129, Total bytes read: 132096Chunks written: 130, Total bytes read: 133120Chunks written: 131, Total bytes read: 134144Chunks written: 132, Total bytes read: 135168Chunks written: 133, Total bytes read: 136192Chunks written: 134, Total bytes read: 137216Chunks written: 135, Total bytes read: 138240Chunks written: 136, Total bytes read: 139264Chunks written: 137, Total bytes read: 140288Chunks written: 138, Total bytes read: 141312Chunks written: 139, Total bytes read: 142336Chunks written: 140, Total bytes read: 143360Chunks written: 141, Total bytes read: 144384Chunks written: 142, Total bytes read: 145408Chunks written: 143, Total bytes read: 146432Chunks written: 144, Total bytes read: 147456Chunks written: 145, Total bytes read: 148480Chunks written: 146, Total bytes read: 149504Chunks written: 147, Total bytes read: 150528Chunks written: 148, Total bytes read: 151552Chunks written: 149, Total bytes read: 152576Chunks written: 150, Total bytes read: 153600Chunks written: 151, Total bytes read: 154624Chunks written: 152, Total bytes read: 155648Chunks written: 153, Total bytes read: 156672Chunks written: 154, Total bytes read: 157696Chunks written: 155, Total bytes read: 158720Chunks written: 156, Total bytes read: 159744Chunks written: 157, Total bytes read: 160768Chunks written: 158, Total bytes read: 161792Chunks written: 159, Total bytes read: 162816Chunks written: 160, Total bytes read: 163840Chunks written: 161, Total bytes read: 164864Chunks written: 162, Total bytes read: 165888Chunks written: 163, Total bytes read: 166912Chunks written: 164, Total bytes read: 167936Chunks written: 165, Total bytes read: 168960Chunks written: 166, Total bytes read: 169984Chunks written: 167, Total bytes read: 171008Chunks written: 168, Total bytes read: 172032Chunks written: 169, Total bytes read: 173056Chunks written: 170, Total bytes read: 174080Chunks written: 171, Total bytes read: 175104Chunks written: 172, Total bytes read: 176128Chunks written: 173, Total bytes read: 177152Chunks written: 174, Total bytes read: 178176Chunks written: 175, Total bytes read: 179200Chunks written: 176, Total bytes read: 180224Chunks written: 177, Total bytes read: 181248Chunks written: 178, Total bytes read: 182272Chunks written: 179, Total bytes read: 183296Chunks written: 180, Total bytes read: 184320Chunks written: 181, Total bytes read: 185344Chunks written: 182, Total bytes read: 186368Chunks written: 183, Total bytes read: 187392Chunks written: 184, Total bytes read: 188416Chunks written: 185, Total bytes read: 189440Chunks written: 186, Total bytes read: 190464Chunks written: 187, Total bytes read: 191488Chunks written: 188, Total bytes read: 192512Chunks written: 189, Total bytes read: 193536Chunks written: 190, Total bytes read: 194560Chunks written: 191, Total bytes read: 195584Chunks written: 192, Total bytes read: 196608Chunks written: 193, Total bytes read: 197632Chunks written: 194, Total bytes read: 198656Chunks written: 195, Total bytes read: 199680Chunks written: 196, Total bytes read: 200704Chunks written: 197, Total bytes read: 201728Chunks written: 198, Total bytes read: 202752Chunks written: 199, Total bytes read: 203776Chunks written: 200, Total bytes read: 204800Chunks written: 201, Total bytes read: 205824Chunks written: 202, Total bytes read: 206848Chunks written: 203, Total bytes read: 207872Chunks written: 204, Total bytes read: 208896Chunks written: 205, Total bytes read: 209920Chunks written: 206, Total bytes read: 210944Chunks written: 207, Total bytes read: 211968Chunks written: 208, Total bytes read: 212992Chunks written: 209, Total bytes read: 214016Chunks written: 210, Total bytes read: 215040Chunks written: 211, Total bytes read: 216064Chunks written: 212, Total bytes read: 217088Chunks written: 213, Total bytes read: 218112Chunks written: 214, Total bytes read: 219136Chunks written: 215, Total bytes read: 220160Chunks written: 216, Total bytes read: 221184Chunks written: 217, Total bytes read: 222208Chunks written: 218, Total bytes read: 223232Chunks written: 219, Total bytes read: 224256Chunks written: 220, Total bytes read: 225280Chunks written: 221, Total bytes read: 226304Chunks written: 222, Total bytes read: 227328Chunks written: 223, Total bytes read: 228352Chunks written: 224, Total bytes read: 229376Chunks written: 225, Total bytes read: 230400Chunks written: 226, Total bytes read: 231424Chunks written: 227, Total bytes read: 232448Chunks written: 228, Total bytes read: 233472Chunks written: 229, Total bytes read: 234496Chunks written: 230, Total bytes read: 235520Chunks written: 231, Total bytes read: 236544Chunks written: 232, Total bytes read: 237568Chunks written: 233, Total bytes read: 238592Chunks written: 234, Total bytes read: 239616Chunks written: 235, Total bytes read: 240640Chunks written: 236, Total bytes read: 241664Chunks written: 237, Total bytes read: 242688Chunks written: 238, Total bytes read: 243712Chunks written: 239, Total bytes read: 244736Chunks written: 240, Total bytes read: 245760Chunks written: 241, Total bytes read: 246784Chunks written: 242, Total bytes read: 247808Chunks written: 243, Total bytes read: 248832Chunks written: 244, Total bytes read: 249856Chunks written: 245, Total bytes read: 250880Chunks written: 246, Total bytes read: 251904Chunks written: 247, Total bytes read: 252928Chunks written: 248, Total bytes read: 253952Chunks written: 249, Total bytes read: 254976Chunks written: 250, Total bytes read: 256000Chunks written: 251, Total bytes read: 257024Chunks written: 252, Total bytes read: 258048Chunks written: 253, Total bytes read: 259072Chunks written: 254, Total bytes read: 260096Chunks written: 255, Total bytes read: 261120Chunks written: 256, Total bytes read: 262144Chunks written: 257, Total bytes read: 263168Chunks written: 258, Total bytes read: 264192Chunks written: 259, Total bytes read: 265216Chunks written: 260, Total bytes read: 266240Chunks written: 261, Total bytes read: 267264Chunks written: 262, Total bytes read: 268288Chunks written: 263, Total bytes read: 269312Chunks written: 264, Total bytes read: 270336Chunks written: 265, Total bytes read: 271360Chunks written: 266, Total bytes read: 272384Chunks written: 267, Total bytes read: 273408Chunks written: 268, Total bytes read: 274432Chunks written: 269, Total bytes read: 275456Chunks written: 270, Total bytes read: 276480Chunks written: 271, Total bytes read: 277504Chunks written: 272, Total bytes read: 278528Chunks written: 273, Total bytes read: 279552Chunks written: 274, Total bytes read: 280576Chunks written: 275, Total bytes read: 281600Chunks written: 276, Total bytes read: 282624Chunks written: 277, Total bytes read: 283648Chunks written: 278, Total bytes read: 284672Chunks written: 279, Total bytes read: 285696Chunks written: 280, Total bytes read: 286720Chunks written: 281, Total bytes read: 287744Chunks written: 282, Total bytes read: 288768Chunks written: 283, Total bytes read: 289792Chunks written: 284, Total bytes read: 290816Chunks written: 285, Total bytes read: 291840Chunks written: 286, Total bytes read: 292864Chunks written: 287, Total bytes read: 293888Chunks written: 288, Total bytes read: 294912Chunks written: 289, Total bytes read: 295936Chunks written: 290, Total bytes read: 296960Chunks written: 291, Total bytes read: 297984Chunks written: 292, Total bytes read: 299008Chunks written: 293, Total bytes read: 300032Chunks written: 294, Total bytes read: 301056Chunks written: 295, Total bytes read: 302080Chunks written: 296, Total bytes read: 303104Chunks written: 297, Total bytes read: 304128Chunks written: 298, Total bytes read: 305152Chunks written: 299, Total bytes read: 306176Chunks written: 300, Total bytes read: 307200Chunks written: 301, Total bytes read: 308224Chunks written: 302, Total bytes read: 309248Chunks written: 303, Total bytes read: 310272Chunks written: 304, Total bytes read: 311296Chunks written: 305, Total bytes read: 312320Chunks written: 306, Total bytes read: 313344Chunks written: 307, Total bytes read: 314368Chunks written: 308, Total bytes read: 315392Chunks written: 309, Total bytes read: 316416Chunks written: 310, Total bytes read: 317440Chunks written: 311, Total bytes read: 318464Chunks written: 312, Total bytes read: 319488Chunks written: 313, Total bytes read: 320512Chunks written: 314, Total bytes read: 321536Chunks written: 315, Total bytes read: 322560Chunks written: 316, Total bytes read: 323584Chunks written: 317, Total bytes read: 324608Chunks written: 318, Total bytes read: 325632Chunks written: 319, Total bytes read: 326656Chunks written: 320, Total bytes read: 327680Chunks written: 321, Total bytes read: 328704Chunks written: 322, Total bytes read: 329728Chunks written: 323, Total bytes read: 330752Chunks written: 324, Total bytes read: 331776Chunks written: 325, Total bytes read: 332800Chunks written: 326, Total bytes read: 333824Chunks written: 327, Total bytes read: 334848Chunks written: 328, Total bytes read: 335872Chunks written: 329, Total bytes read: 336896Chunks written: 330, Total bytes read: 337920Chunks written: 331, Total bytes read: 338944Chunks written: 332, Total bytes read: 339968Chunks written: 333, Total bytes read: 340992Chunks written: 334, Total bytes read: 342016Chunks written: 335, Total bytes read: 343040Chunks written: 336, Total bytes read: 344064Chunks written: 337, Total bytes read: 345088Chunks written: 338, Total bytes read: 346112Chunks written: 339, Total bytes read: 347136Chunks written: 340, Total bytes read: 348160Chunks written: 341, Total bytes read: 349184Chunks written: 342, Total bytes read: 350208Chunks written: 343, Total bytes read: 351232Chunks written: 344, Total bytes read: 352256Chunks written: 345, Total bytes read: 353280Chunks written: 346, Total bytes read: 354304Chunks written: 347, Total bytes read: 355328Chunks written: 348, Total bytes read: 356352Chunks written: 349, Total bytes read: 357376Chunks written: 350, Total bytes read: 358400Chunks written: 351, Total bytes read: 359424Chunks written: 352, Total bytes read: 360448Chunks written: 353, Total bytes read: 361472Chunks written: 354, Total bytes read: 362496Chunks written: 355, Total bytes read: 363520Chunks written: 356, Total bytes read: 364544Chunks written: 357, Total bytes read: 365568Chunks written: 358, Total bytes read: 366592Chunks written: 359, Total bytes read: 367616Chunks written: 360, Total bytes read: 368640Chunks written: 361, Total bytes read: 369664Chunks written: 362, Total bytes read: 370688Chunks written: 363, Total bytes read: 371712Chunks written: 364, Total bytes read: 372736Chunks written: 365, Total bytes read: 373760Chunks written: 366, Total bytes read: 374784Chunks written: 367, Total bytes read: 375808Chunks written: 368, Total bytes read: 376832Chunks written: 369, Total bytes read: 377856Chunks written: 370, Total bytes read: 378880Chunks written: 371, Total bytes read: 379904Chunks written: 372, Total bytes read: 380928Chunks written: 373, Total bytes read: 381952Chunks written: 374, Total bytes read: 382976Chunks written: 375, Total bytes read: 384000Chunks written: 376, Total bytes read: 385024Chunks written: 377, Total bytes read: 386048Chunks written: 378, Total bytes read: 387072Chunks written: 379, Total bytes read: 388096Chunks written: 380, Total bytes read: 389120Chunks written: 381, Total bytes read: 390144Chunks written: 382, Total bytes read: 391168Chunks written: 383, Total bytes read: 392192Chunks written: 384, Total bytes read: 393216Chunks written: 385, Total bytes read: 394240Chunks written: 386, Total bytes read: 395264Chunks written: 387, Total bytes read: 396288Chunks written: 388, Total bytes read: 397312Chunks written: 389, Total bytes read: 398336Chunks written: 390, Total bytes read: 399360Chunks written: 391, Total bytes read: 400384Chunks written: 392, Total bytes read: 401408Chunks written: 393, Total bytes read: 402432Chunks written: 394, Total bytes read: 403456Chunks written: 395, Total bytes read: 404480Chunks written: 396, Total bytes read: 405504Chunks written: 397, Total bytes read: 406528Chunks written: 398, Total bytes read: 407552Chunks written: 399, Total bytes read: 408576Chunks written: 400, Total bytes read: 409600Chunks written: 401, Total bytes read: 410624Chunks written: 402, Total bytes read: 411648Chunks written: 403, Total bytes read: 412672Chunks written: 404, Total bytes read: 413696Chunks written: 405, Total bytes read: 414720Chunks written: 406, Total bytes read: 415744Chunks written: 407, Total bytes read: 416768Chunks written: 408, Total bytes read: 417792Chunks written: 409, Total bytes read: 418816Chunks written: 410, Total bytes read: 419840Chunks written: 411, Total bytes read: 420864Chunks written: 412, Total bytes read: 421888Chunks written: 413, Total bytes read: 422912Chunks written: 414, Total bytes read: 423936Chunks written: 415, Total bytes read: 424960Chunks written: 416, Total bytes read: 425984Chunks written: 417, Total bytes read: 427008Chunks written: 418, Total bytes read: 428032Chunks written: 419, Total bytes read: 429056Chunks written: 420, Total bytes read: 430080Chunks written: 421, Total bytes read: 431104Chunks written: 422, Total bytes read: 432128Chunks written: 423, Total bytes read: 433152Chunks written: 424, Total bytes read: 434176Chunks written: 425, Total bytes read: 435200Chunks written: 426, Total bytes read: 436224Chunks written: 427, Total bytes read: 437248Chunks written: 428, Total bytes read: 438272Chunks written: 429, Total bytes read: 439296Chunks written: 430, Total bytes read: 440320Chunks written: 431, Total bytes read: 441344Chunks written: 432, Total bytes read: 442368Chunks written: 433, Total bytes read: 443392Chunks written: 434, Total bytes read: 444416Chunks written: 435, Total bytes read: 445440Chunks written: 436, Total bytes read: 446464Chunks written: 437, Total bytes read: 447488Chunks written: 438, Total bytes read: 448512Chunks written: 439, Total bytes read: 449536Chunks written: 440, Total bytes read: 450560Chunks written: 441, Total bytes read: 451584Chunks written: 442, Total bytes read: 452608Chunks written: 443, Total bytes read: 453632Chunks written: 444, Total bytes read: 454656Chunks written: 445, Total bytes read: 455680Chunks written: 446, Total bytes read: 456704Chunks written: 447, Total bytes read: 457728Chunks written: 448, Total bytes read: 458752Chunks written: 449, Total bytes read: 459776Chunks written: 450, Total bytes read: 460800Chunks written: 451, Total bytes read: 461824Chunks written: 452, Total bytes read: 462848Chunks written: 453, Total bytes read: 463872Chunks written: 454, Total bytes read: 464896Chunks written: 455, Total bytes read: 465920Chunks written: 456, Total bytes read: 466944Chunks written: 457, Total bytes read: 467968Chunks written: 458, Total bytes read: 468992Chunks written: 459, Total bytes read: 470016Chunks written: 460, Total bytes read: 471040Chunks written: 461, Total bytes read: 472064Chunks written: 462, Total bytes read: 473088Chunks written: 463, Total bytes read: 474112Chunks written: 464, Total bytes read: 475136Chunks written: 465, Total bytes read: 476160Chunks written: 466, Total bytes read: 477184Chunks written: 467, Total bytes read: 478208Chunks written: 468, Total bytes read: 479232Chunks written: 469, Total bytes read: 480256Chunks written: 470, Total bytes read: 481280Chunks written: 471, Total bytes read: 482304Chunks written: 472, Total bytes read: 483328Chunks written: 473, Total bytes read: 484352Chunks written: 474, Total bytes read: 485376Chunks written: 475, Total bytes read: 486400Chunks written: 476, Total bytes read: 487424Chunks written: 477, Total bytes read: 488448Chunks written: 478, Total bytes read: 489472Chunks written: 479, Total bytes read: 490496Chunks written: 480, Total bytes read: 491520Chunks written: 481, Total bytes read: 492544Chunks written: 482, Total bytes read: 493568Chunks written: 483, Total bytes read: 494592Chunks written: 484, Total bytes read: 495616Chunks written: 485, Total bytes read: 496640Chunks written: 486, Total bytes read: 497664Chunks written: 487, Total bytes read: 498688Chunks written: 488, Total bytes read: 499712Chunks written: 489, Total bytes read: 500736Chunks written: 490, Total bytes read: 501760Chunks written: 491, Total bytes read: 502784Chunks written: 492, Total bytes read: 503808Chunks written: 493, Total bytes read: 504832Chunks written: 494, Total bytes read: 505856Chunks written: 495, Total bytes read: 506880Chunks written: 496, Total bytes read: 507904Chunks written: 497, Total bytes read: 508928Chunks written: 498, Total bytes read: 509952Chunks written: 499, Total bytes read: 510976Chunks written: 500, Total bytes read: 512000Chunks written: 501, Total bytes read: 513024Chunks written: 502, Total bytes read: 514048Chunks written: 503, Total bytes read: 515072Chunks written: 504, Total bytes read: 516096Chunks written: 505, Total bytes read: 517120Chunks written: 506, Total bytes read: 518144Chunks written: 507, Total bytes read: 519168Chunks written: 508, Total bytes read: 520192Chunks written: 509, Total bytes read: 521216Chunks written: 510, Total bytes read: 522240Chunks written: 511, Total bytes read: 523264Chunks written: 512, Total bytes read: 524288Chunks written: 513, Total bytes read: 525312Chunks written: 514, Total bytes read: 526336Chunks written: 515, Total bytes read: 527360Chunks written: 516, Total bytes read: 528384Chunks written: 517, Total bytes read: 529408Chunks written: 518, Total bytes read: 530432Chunks written: 519, Total bytes read: 531456Chunks written: 520, Total bytes read: 532480Chunks written: 521, Total bytes read: 533504Chunks written: 522, Total bytes read: 534528Chunks written: 523, Total bytes read: 535552Chunks written: 524, Total bytes read: 536576Chunks written: 525, Total bytes read: 537600Chunks written: 526, Total bytes read: 538624Chunks written: 527, Total bytes read: 539648Chunks written: 528, Total bytes read: 540672Chunks written: 529, Total bytes read: 541696Chunks written: 530, Total bytes read: 542720Chunks written: 531, Total bytes read: 543744Chunks written: 532, Total bytes read: 544768Chunks written: 533, Total bytes read: 545792Chunks written: 534, Total bytes read: 546816Chunks written: 535, Total bytes read: 547840Chunks written: 536, Total bytes read: 548864Chunks written: 537, Total bytes read: 549888Chunks written: 538, Total bytes read: 550912Chunks written: 539, Total bytes read: 551936Chunks written: 540, Total bytes read: 552960Chunks written: 541, Total bytes read: 553984Chunks written: 542, Total bytes read: 555008Chunks written: 543, Total bytes read: 556032Chunks written: 544, Total bytes read: 557056Chunks written: 545, Total bytes read: 558080Chunks written: 546, Total bytes read: 559104Chunks written: 547, Total bytes read: 560128Chunks written: 548, Total bytes read: 561152Chunks written: 549, Total bytes read: 562176Chunks written: 550, Total bytes read: 563200Chunks written: 551, Total bytes read: 564224Chunks written: 552, Total bytes read: 565248Chunks written: 553, Total bytes read: 566272Chunks written: 554, Total bytes read: 567296Chunks written: 555, Total bytes read: 568320Chunks written: 556, Total bytes read: 569344Chunks written: 557, Total bytes read: 570368Chunks written: 558, Total bytes read: 571392Chunks written: 559, Total bytes read: 572416Chunks written: 560, Total bytes read: 573440Chunks written: 561, Total bytes read: 574464Chunks written: 562, Total bytes read: 575488Chunks written: 563, Total bytes read: 576512Chunks written: 564, Total bytes read: 577536Chunks written: 565, Total bytes read: 578560Chunks written: 566, Total bytes read: 579584Chunks written: 567, Total bytes read: 580608Chunks written: 568, Total bytes read: 581632Chunks written: 569, Total bytes read: 582656Chunks written: 570, Total bytes read: 583680Chunks written: 571, Total bytes read: 584704Chunks written: 572, Total bytes read: 585728Chunks written: 573, Total bytes read: 586752Chunks written: 574, Total bytes read: 587776Chunks written: 575, Total bytes read: 588800Chunks written: 576, Total bytes read: 589824Chunks written: 577, Total bytes read: 590848Chunks written: 578, Total bytes read: 591872Chunks written: 579, Total bytes read: 592896Chunks written: 580, Total bytes read: 593920Chunks written: 581, Total bytes read: 594944Chunks written: 582, Total bytes read: 595968Chunks written: 583, Total bytes read: 596992Chunks written: 584, Total bytes read: 598016Chunks written: 585, Total bytes read: 599040Chunks written: 586, Total bytes read: 600064Chunks written: 587, Total bytes read: 601088Chunks written: 588, Total bytes read: 602112Chunks written: 589, Total bytes read: 603136Chunks written: 590, Total bytes read: 604160Chunks written: 591, Total bytes read: 605184Chunks written: 592, Total bytes read: 606208Chunks written: 593, Total bytes read: 607232Chunks written: 594, Total bytes read: 608256Chunks written: 595, Total bytes read: 609280Chunks written: 596, Total bytes read: 610304Chunks written: 597, Total bytes read: 611328Chunks written: 598, Total bytes read: 612352Chunks written: 599, Total bytes read: 613376Chunks written: 600, Total bytes read: 614400Chunks written: 601, Total bytes read: 615424Chunks written: 602, Total bytes read: 616448Chunks written: 603, Total bytes read: 617472Chunks written: 604, Total bytes read: 618496Chunks written: 605, Total bytes read: 619520Chunks written: 606, Total bytes read: 620544Chunks written: 607, Total bytes read: 621568Chunks written: 608, Total bytes read: 622592Chunks written: 609, Total bytes read: 623616Chunks written: 610, Total bytes read: 624640Chunks written: 611, Total bytes read: 625664Chunks written: 612, Total bytes read: 626688Chunks written: 613, Total bytes read: 627712Chunks written: 614, Total bytes read: 628736Chunks written: 615, Total bytes read: 629760Chunks written: 616, Total bytes read: 630784Chunks written: 617, Total bytes read: 631808Chunks written: 618, Total bytes read: 632832Chunks written: 619, Total bytes read: 633856Chunks written: 620, Total bytes read: 634880Chunks written: 621, Total bytes read: 635904Chunks written: 622, Total bytes read: 636928Chunks written: 623, Total bytes read: 637952Chunks written: 624, Total bytes read: 638976Chunks written: 625, Total bytes read: 640000Chunks written: 626, Total bytes read: 641024Chunks written: 627, Total bytes read: 642048Chunks written: 628, Total bytes read: 643072Chunks written: 629, Total bytes read: 644096Chunks written: 630, Total bytes read: 645120Chunks written: 631, Total bytes read: 646144Chunks written: 632, Total bytes read: 647168Chunks written: 633, Total bytes read: 648192Chunks written: 634, Total bytes read: 649216Chunks written: 635, Total bytes read: 650240Chunks written: 636, Total bytes read: 651264Chunks written: 637, Total bytes read: 652288Chunks written: 638, Total bytes read: 653312Chunks written: 639, Total bytes read: 654336Chunks written: 640, Total bytes read: 655360Chunks written: 641, Total bytes read: 656384Chunks written: 642, Total bytes read: 657408Chunks written: 643, Total bytes read: 658432Chunks written: 644, Total bytes read: 659456Chunks written: 645, Total bytes read: 660480Chunks written: 646, Total bytes read: 661504Chunks written: 647, Total bytes read: 662528Chunks written: 648, Total bytes read: 663552Chunks written: 649, Total bytes read: 664576Chunks written: 650, Total bytes read: 665600Chunks written: 651, Total bytes read: 666624Chunks written: 652, Total bytes read: 667648Chunks written: 653, Total bytes read: 668672Chunks written: 654, Total bytes read: 669696Chunks written: 655, Total bytes read: 670720Chunks written: 656, Total bytes read: 671744Chunks written: 657, Total bytes read: 672768Chunks written: 658, Total bytes read: 673792Chunks written: 659, Total bytes read: 674816Chunks written: 660, Total bytes read: 675840Chunks written: 661, Total bytes read: 676864Chunks written: 662, Total bytes read: 677888Chunks written: 663, Total bytes read: 678912Chunks written: 664, Total bytes read: 679936Chunks written: 665, Total bytes read: 680960Chunks written: 666, Total bytes read: 681984Chunks written: 667, Total bytes read: 683008Chunks written: 668, Total bytes read: 684032Chunks written: 669, Total bytes read: 685056Chunks written: 670, Total bytes read: 686080Chunks written: 671, Total bytes read: 687104Chunks written: 672, Total bytes read: 688128Chunks written: 673, Total bytes read: 689152Chunks written: 674, Total bytes read: 690176Chunks written: 675, Total bytes read: 691200Chunks written: 676, Total bytes read: 692224Chunks written: 677, Total bytes read: 693248Chunks written: 678, Total bytes read: 694272Chunks written: 679, Total bytes read: 695296Chunks written: 680, Total bytes read: 696320Chunks written: 681, Total bytes read: 697344Chunks written: 682, Total bytes read: 698368Chunks written: 683, Total bytes read: 699392Chunks written: 684, Total bytes read: 700416Chunks written: 685, Total bytes read: 701440Chunks written: 686, Total bytes read: 702464Chunks written: 687, Total bytes read: 703488Chunks written: 688, Total bytes read: 704512Chunks written: 689, Total bytes read: 705536Chunks written: 690, Total bytes read: 706560Chunks written: 691, Total bytes read: 707584Chunks written: 692, Total bytes read: 708608Chunks written: 693, Total bytes read: 709632Chunks written: 694, Total bytes read: 710656Chunks written: 695, Total bytes read: 711680Chunks written: 696, Total bytes read: 712704Chunks written: 697, Total bytes read: 713728Chunks written: 698, Total bytes read: 714752Chunks written: 699, Total bytes read: 715776Chunks written: 700, Total bytes read: 716800Chunks written: 701, Total bytes read: 717824Chunks written: 702, Total bytes read: 718848Chunks written: 703, Total bytes read: 719872Chunks written: 704, Total bytes read: 720896Chunks written: 705, Total bytes read: 721920Chunks written: 706, Total bytes read: 722944Chunks written: 707, Total bytes read: 723968Chunks written: 708, Total bytes read: 724992Chunks written: 709, Total bytes read: 726016Chunks written: 710, Total bytes read: 727040Chunks written: 711, Total bytes read: 728064Chunks written: 712, Total bytes read: 729088Chunks written: 713, Total bytes read: 730112Chunks written: 714, Total bytes read: 731136Chunks written: 715, Total bytes read: 732160Chunks written: 716, Total bytes read: 733184Chunks written: 717, Total bytes read: 734208Chunks written: 718, Total bytes read: 735232Chunks written: 719, Total bytes read: 736256Chunks written: 720, Total bytes read: 737280Chunks written: 721, Total bytes read: 738304Chunks written: 722, Total bytes read: 739328Chunks written: 723, Total bytes read: 740352Chunks written: 724, Total bytes read: 741376Chunks written: 725, Total bytes read: 742400Chunks written: 726, Total bytes read: 743424Chunks written: 727, Total bytes read: 744448Chunks written: 728, Total bytes read: 745472Chunks written: 729, Total bytes read: 746496Chunks written: 730, Total bytes read: 747520Chunks written: 731, Total bytes read: 748544Chunks written: 732, Total bytes read: 749568Chunks written: 733, Total bytes read: 750592Chunks written: 734, Total bytes read: 751616Chunks written: 735, Total bytes read: 752640Chunks written: 736, Total bytes read: 753664Chunks written: 737, Total bytes read: 754688Chunks written: 738, Total bytes read: 755712Chunks written: 739, Total bytes read: 756736Chunks written: 740, Total bytes read: 757760Chunks written: 741, Total bytes read: 758784Chunks written: 742, Total bytes read: 759808Chunks written: 743, Total bytes read: 760832Chunks written: 744, Total bytes read: 761856Chunks written: 745, Total bytes read: 762880Chunks written: 746, Total bytes read: 763904Chunks written: 747, Total bytes read: 764928Chunks written: 748, Total bytes read: 765952Chunks written: 749, Total bytes read: 766976Chunks written: 750, Total bytes read: 768000Chunks written: 751, Total bytes read: 769024Chunks written: 752, Total bytes read: 770048Chunks written: 753, Total bytes read: 771072Chunks written: 754, Total bytes read: 772096Chunks written: 755, Total bytes read: 773120Chunks written: 756, Total bytes read: 774144Chunks written: 757, Total bytes read: 775168Chunks written: 758, Total bytes read: 776192Chunks written: 759, Total bytes read: 777216Chunks written: 760, Total bytes read: 778240Chunks written: 761, Total bytes read: 779264Chunks written: 762, Total bytes read: 780288Chunks written: 763, Total bytes read: 781312Chunks written: 764, Total bytes read: 782336Chunks written: 765, Total bytes read: 783360Chunks written: 766, Total bytes read: 784384Chunks written: 767, Total bytes read: 785408Chunks written: 768, Total bytes read: 786432Chunks written: 769, Total bytes read: 787456Chunks written: 770, Total bytes read: 788480Chunks written: 771, Total bytes read: 789504Chunks written: 772, Total bytes read: 790528Chunks written: 773, Total bytes read: 791552Chunks written: 774, Total bytes read: 792576Chunks written: 775, Total bytes read: 793600Chunks written: 776, Total bytes read: 794624Chunks written: 777, Total bytes read: 795648Chunks written: 778, Total bytes read: 796672Chunks written: 779, Total bytes read: 797696Chunks written: 780, Total bytes read: 798720Chunks written: 781, Total bytes read: 799744Chunks written: 782, Total bytes read: 800768Chunks written: 783, Total bytes read: 801792Chunks written: 784, Total bytes read: 802816Chunks written: 785, Total bytes read: 803840Chunks written: 786, Total bytes read: 804864Chunks written: 787, Total bytes read: 805888Chunks written: 788, Total bytes read: 806912Chunks written: 789, Total bytes read: 807936Chunks written: 790, Total bytes read: 808960Chunks written: 791, Total bytes read: 809984Chunks written: 792, Total bytes read: 811008Chunks written: 793, Total bytes read: 812032Chunks written: 794, Total bytes read: 813056Chunks written: 795, Total bytes read: 814080Chunks written: 796, Total bytes read: 815104Chunks written: 797, Total bytes read: 816128Chunks written: 798, Total bytes read: 817152Chunks written: 799, Total bytes read: 818176Chunks written: 800, Total bytes read: 819200Chunks written: 801, Total bytes read: 820224Chunks written: 802, Total bytes read: 821248Chunks written: 803, Total bytes read: 822272Chunks written: 804, Total bytes read: 823296Chunks written: 805, Total bytes read: 824320Chunks written: 806, Total bytes read: 825344Chunks written: 807, Total bytes read: 826368Chunks written: 808, Total bytes read: 827392Chunks written: 809, Total bytes read: 828416Chunks written: 810, Total bytes read: 829440Chunks written: 811, Total bytes read: 830464Chunks written: 812, Total bytes read: 831488Chunks written: 813, Total bytes read: 832512Chunks written: 814, Total bytes read: 833536Chunks written: 815, Total bytes read: 834560Chunks written: 816, Total bytes read: 835584Chunks written: 817, Total bytes read: 836608Chunks written: 818, Total bytes read: 837632Chunks written: 819, Total bytes read: 838656Chunks written: 820, Total bytes read: 839680Chunks written: 821, Total bytes read: 840704Chunks written: 822, Total bytes read: 841728Chunks written: 823, Total bytes read: 842752Chunks written: 824, Total bytes read: 843776Chunks written: 825, Total bytes read: 844800Chunks written: 826, Total bytes read: 845824Chunks written: 827, Total bytes read: 846848Chunks written: 828, Total bytes read: 847872Chunks written: 829, Total bytes read: 848896Chunks written: 830, Total bytes read: 849920Chunks written: 831, Total bytes read: 850944Chunks written: 832, Total bytes read: 851968Chunks written: 833, Total bytes read: 852992Chunks written: 834, Total bytes read: 854016Chunks written: 835, Total bytes read: 855040Chunks written: 836, Total bytes read: 856064Chunks written: 837, Total bytes read: 857088Chunks written: 838, Total bytes read: 858112Chunks written: 839, Total bytes read: 859136Chunks written: 840, Total bytes read: 860160Chunks written: 841, Total bytes read: 861184Chunks written: 842, Total bytes read: 862208Chunks written: 843, Total bytes read: 863232Chunks written: 844, Total bytes read: 864256Chunks written: 845, Total bytes read: 865280Chunks written: 846, Total bytes read: 866304Chunks written: 847, Total bytes read: 867328Chunks written: 848, Total bytes read: 868352Chunks written: 849, Total bytes read: 869376Chunks written: 850, Total bytes read: 870400Chunks written: 851, Total bytes read: 871424Chunks written: 852, Total bytes read: 872448Chunks written: 853, Total bytes read: 873472Chunks written: 854, Total bytes read: 874496Chunks written: 855, Total bytes read: 875520Chunks written: 856, Total bytes read: 876544Chunks written: 857, Total bytes read: 877568Chunks written: 858, Total bytes read: 878592Chunks written: 859, Total bytes read: 879616Chunks written: 860, Total bytes read: 880640Chunks written: 861, Total bytes read: 881664Chunks written: 862, Total bytes read: 882688Chunks written: 863, Total bytes read: 883712Chunks written: 864, Total bytes read: 884736Chunks written: 865, Total bytes read: 885760Chunks written: 866, Total bytes read: 886784Chunks written: 867, Total bytes read: 887808Chunks written: 868, Total bytes read: 888832Chunks written: 869, Total bytes read: 889856Chunks written: 870, Total bytes read: 890880Chunks written: 871, Total bytes read: 891904Chunks written: 872, Total bytes read: 892928Chunks written: 873, Total bytes read: 893952Chunks written: 874, Total bytes read: 894976Chunks written: 875, Total bytes read: 896000Chunks written: 876, Total bytes read: 897024Chunks written: 877, Total bytes read: 898048Chunks written: 878, Total bytes read: 899072Chunks written: 879, Total bytes read: 900096Chunks written: 880, Total bytes read: 901120Chunks written: 881, Total bytes read: 902144Chunks written: 882, Total bytes read: 903168Chunks written: 883, Total bytes read: 904192Chunks written: 884, Total bytes read: 905216Chunks written: 885, Total bytes read: 906240Chunks written: 886, Total bytes read: 907264Chunks written: 887, Total bytes read: 908288Chunks written: 888, Total bytes read: 909312Chunks written: 889, Total bytes read: 910336Chunks written: 890, Total bytes read: 911360Chunks written: 891, Total bytes read: 912384Chunks written: 892, Total bytes read: 913408Chunks written: 893, Total bytes read: 914432Chunks written: 894, Total bytes read: 915456Chunks written: 895, Total bytes read: 916480Chunks written: 896, Total bytes read: 917504Chunks written: 897, Total bytes read: 918528Chunks written: 898, Total bytes read: 919552Chunks written: 899, Total bytes read: 920576Chunks written: 900, Total bytes read: 921600Chunks written: 901, Total bytes read: 922624Chunks written: 902, Total bytes read: 923648Chunks written: 903, Total bytes read: 924672Chunks written: 904, Total bytes read: 925696Chunks written: 905, Total bytes read: 926720Chunks written: 906, Total bytes read: 927744Chunks written: 907, Total bytes read: 928768Chunks written: 908, Total bytes read: 929792Chunks written: 909, Total bytes read: 930816Chunks written: 910, Total bytes read: 931840Chunks written: 911, Total bytes read: 932864Chunks written: 912, Total bytes read: 933888Chunks written: 913, Total bytes read: 934912Chunks written: 914, Total bytes read: 935936Chunks written: 915, Total bytes read: 936960Chunks written: 916, Total bytes read: 937984Chunks written: 917, Total bytes read: 939008Chunks written: 918, Total bytes read: 940032Chunks written: 919, Total bytes read: 941056Chunks written: 920, Total bytes read: 942080Chunks written: 921, Total bytes read: 943104Chunks written: 922, Total bytes read: 944128Chunks written: 923, Total bytes read: 945152Chunks written: 924, Total bytes read: 946176Chunks written: 925, Total bytes read: 947200Chunks written: 926, Total bytes read: 948224Chunks written: 927, Total bytes read: 949248Chunks written: 928, Total bytes read: 950272Chunks written: 929, Total bytes read: 951296Chunks written: 930, Total bytes read: 952320Chunks written: 931, Total bytes read: 953344Chunks written: 932, Total bytes read: 954368Chunks written: 933, Total bytes read: 955392Chunks written: 934, Total bytes read: 956416Chunks written: 935, Total bytes read: 957440Chunks written: 936, Total bytes read: 958464Chunks written: 937, Total bytes read: 959488Chunks written: 938, Total bytes read: 960512Chunks written: 939, Total bytes read: 961536Chunks written: 940, Total bytes read: 962560Chunks written: 941, Total bytes read: 963584Chunks written: 942, Total bytes read: 964608Chunks written: 943, Total bytes read: 965632Chunks written: 944, Total bytes read: 966656Chunks written: 945, Total bytes read: 967680Chunks written: 946, Total bytes read: 968704Chunks written: 947, Total bytes read: 969728Chunks written: 948, Total bytes read: 970752Chunks written: 949, Total bytes read: 971776Chunks written: 950, Total bytes read: 972800Chunks written: 951, Total bytes read: 973824Chunks written: 952, Total bytes read: 974848Chunks written: 953, Total bytes read: 975872Chunks written: 954, Total bytes read: 976896Chunks written: 955, Total bytes read: 977920Chunks written: 956, Total bytes read: 978944Chunks written: 957, Total bytes read: 979968Chunks written: 958, Total bytes read: 980992Chunks written: 959, Total bytes read: 982016Chunks written: 960, Total bytes read: 983040Chunks written: 961, Total bytes read: 984064Chunks written: 962, Total bytes read: 985088Chunks written: 963, Total bytes read: 986112Chunks written: 964, Total bytes read: 987136Chunks written: 965, Total bytes read: 988160Chunks written: 966, Total bytes read: 989184Chunks written: 967, Total bytes read: 990208Chunks written: 968, Total bytes read: 991232Chunks written: 969, Total bytes read: 992256Chunks written: 970, Total bytes read: 993280Chunks written: 971, Total bytes read: 993344I (22413) remote_rw: 
-Success: Data written to partition
-[0;32mI (22413) chksum: Calculating MD5 checksum for partition: ota_0[0m
-Chunks read: 1, Total bytes read: 1024Chunks read: 2, Total bytes read: 2048Chunks read: 3, Total bytes read: 3072Chunks read: 4, Total bytes read: 4096Chunks read: 5, Total bytes read: 5120Chunks read: 6, Total bytes read: 6144Chunks read: 7, Total bytes read: 7168Chunks read: 8, Total bytes read: 8192Chunks read: 9, Total bytes read: 9216Chunks read: 10, Total bytes read: 10240Chunks read: 11, Total bytes read: 11264Chunks read: 12, Total bytes read: 12288Chunks read: 13, Total bytes read: 13312Chunks read: 14, Total bytes read: 14336Chunks read: 15, Total bytes read: 15360Chunks read: 16, Total bytes read: 16384Chunks read: 17, Total bytes read: 17408Chunks read: 18, Total bytes read: 18432Chunks read: 19, Total bytes read: 19456Chunks read: 20, Total bytes read: 20480Chunks read: 21, Total bytes read: 21504Chunks read: 22, Total bytes read: 22528Chunks read: 23, Total bytes read: 23552Chunks read: 24, Total bytes read: 24576Chunks read: 25, Total bytes read: 25600Chunks read: 26, Total bytes read: 26624Chunks read: 27, Total bytes read: 27648Chunks read: 28, Total bytes read: 28672Chunks read: 29, Total bytes read: 29696Chunks read: 30, Total bytes read: 30720Chunks read: 31, Total bytes read: 31744Chunks read: 32, Total bytes read: 32768Chunks read: 33, Total bytes read: 33792Chunks read: 34, Total bytes read: 34816Chunks read: 35, Total bytes read: 35840Chunks read: 36, Total bytes read: 36864Chunks read: 37, Total bytes read: 37888Chunks read: 38, Total bytes read: 38912Chunks read: 39, Total bytes read: 39936Chunks read: 40, Total bytes read: 40960Chunks read: 41, Total bytes read: 41984Chunks read: 42, Total bytes read: 43008Chunks read: 43, Total bytes read: 44032Chunks read: 44, Total bytes read: 45056Chunks read: 45, Total bytes read: 46080Chunks read: 46, Total bytes read: 47104Chunks read: 47, Total bytes read: 48128Chunks read: 48, Total bytes read: 49152Chunks read: 49, Total bytes read: 50176Chunks read: 50, Total bytes read: 51200Chunks read: 51, Total bytes read: 52224Chunks read: 52, Total bytes read: 53248Chunks read: 53, Total bytes read: 54272Chunks read: 54, Total bytes read: 55296Chunks read: 55, Total bytes read: 56320Chunks read: 56, Total bytes read: 57344Chunks read: 57, Total bytes read: 58368Chunks read: 58, Total bytes read: 59392Chunks read: 59, Total bytes read: 60416Chunks read: 60, Total bytes read: 61440Chunks read: 61, Total bytes read: 62464Chunks read: 62, Total bytes read: 63488Chunks read: 63, Total bytes read: 64512Chunks read: 64, Total bytes read: 65536Chunks read: 65, Total bytes read: 66560Chunks read: 66, Total bytes read: 67584Chunks read: 67, Total bytes read: 68608Chunks read: 68, Total bytes read: 69632Chunks read: 69, Total bytes read: 70656Chunks read: 70, Total bytes read: 71680Chunks read: 71, Total bytes read: 72704Chunks read: 72, Total bytes read: 73728Chunks read: 73, Total bytes read: 74752Chunks read: 74, Total bytes read: 75776Chunks read: 75, Total bytes read: 76800Chunks read: 76, Total bytes read: 77824Chunks read: 77, Total bytes read: 78848Chunks read: 78, Total bytes read: 79872Chunks read: 79, Total bytes read: 80896Chunks read: 80, Total bytes read: 81920Chunks read: 81, Total bytes read: 82944Chunks read: 82, Total bytes read: 83968Chunks read: 83, Total bytes read: 84992Chunks read: 84, Total bytes read: 86016Chunks read: 85, Total bytes read: 87040Chunks read: 86, Total bytes read: 88064Chunks read: 87, Total bytes read: 89088Chunks read: 88, Total bytes read: 90112Chunks read: 89, Total bytes read: 91136Chunks read: 90, Total bytes read: 92160Chunks read: 91, Total bytes read: 93184Chunks read: 92, Total bytes read: 94208Chunks read: 93, Total bytes read: 95232Chunks read: 94, Total bytes read: 96256Chunks read: 95, Total bytes read: 97280Chunks read: 96, Total bytes read: 98304Chunks read: 97, Total bytes read: 99328Chunks read: 98, Total bytes read: 100352Chunks read: 99, Total bytes read: 101376Chunks read: 100, Total bytes read: 102400Chunks read: 101, Total bytes read: 103424Chunks read: 102, Total bytes read: 104448Chunks read: 103, Total bytes read: 105472Chunks read: 104, Total bytes read: 106496Chunks read: 105, Total bytes read: 107520Chunks read: 106, Total bytes read: 108544Chunks read: 107, Total bytes read: 109568Chunks read: 108, Total bytes read: 110592Chunks read: 109, Total bytes read: 111616Chunks read: 110, Total bytes read: 112640Chunks read: 111, Total bytes read: 113664Chunks read: 112, Total bytes read: 114688Chunks read: 113, Total bytes read: 115712Chunks read: 114, Total bytes read: 116736Chunks read: 115, Total bytes read: 117760Chunks read: 116, Total bytes read: 118784Chunks read: 117, Total bytes read: 119808Chunks read: 118, Total bytes read: 120832Chunks read: 119, Total bytes read: 121856Chunks read: 120, Total bytes read: 122880Chunks read: 121, Total bytes read: 123904Chunks read: 122, Total bytes read: 124928Chunks read: 123, Total bytes read: 125952Chunks read: 124, Total bytes read: 126976Chunks read: 125, Total bytes read: 128000Chunks read: 126, Total bytes read: 129024Chunks read: 127, Total bytes read: 130048Chunks read: 128, Total bytes read: 131072Chunks read: 129, Total bytes read: 132096Chunks read: 130, Total bytes read: 133120Chunks read: 131, Total bytes read: 134144Chunks read: 132, Total bytes read: 135168Chunks read: 133, Total bytes read: 136192Chunks read: 134, Total bytes read: 137216Chunks read: 135, Total bytes read: 138240Chunks read: 136, Total bytes read: 139264Chunks read: 137, Total bytes read: 140288Chunks read: 138, Total bytes read: 141312Chunks read: 139, Total bytes read: 142336Chunks read: 140, Total bytes read: 143360Chunks read: 141, Total bytes read: 144384Chunks read: 142, Total bytes read: 145408Chunks read: 143, Total bytes read: 146432Chunks read: 144, Total bytes read: 147456Chunks read: 145, Total bytes read: 148480Chunks read: 146, Total bytes read: 149504Chunks read: 147, Total bytes read: 150528Chunks read: 148, Total bytes read: 151552Chunks read: 149, Total bytes read: 152576Chunks read: 150, Total bytes read: 153600Chunks read: 151, Total bytes read: 154624Chunks read: 152, Total bytes read: 155648Chunks read: 153, Total bytes read: 156672Chunks read: 154, Total bytes read: 157696Chunks read: 155, Total bytes read: 158720Chunks read: 156, Total bytes read: 159744Chunks read: 157, Total bytes read: 160768Chunks read: 158, Total bytes read: 161792Chunks read: 159, Total bytes read: 162816Chunks read: 160, Total bytes read: 163840Chunks read: 161, Total bytes read: 164864Chunks read: 162, Total bytes read: 165888Chunks read: 163, Total bytes read: 166912Chunks read: 164, Total bytes read: 167936Chunks read: 165, Total bytes read: 168960Chunks read: 166, Total bytes read: 169984Chunks read: 167, Total bytes read: 171008Chunks read: 168, Total bytes read: 172032Chunks read: 169, Total bytes read: 173056Chunks read: 170, Total bytes read: 174080Chunks read: 171, Total bytes read: 175104Chunks read: 172, Total bytes read: 176128Chunks read: 173, Total bytes read: 177152Chunks read: 174, Total bytes read: 178176Chunks read: 175, Total bytes read: 179200Chunks read: 176, Total bytes read: 180224Chunks read: 177, Total bytes read: 181248Chunks read: 178, Total bytes read: 182272Chunks read: 179, Total bytes read: 183296Chunks read: 180, Total bytes read: 184320Chunks read: 181, Total bytes read: 185344Chunks read: 182, Total bytes read: 186368Chunks read: 183, Total bytes read: 187392Chunks read: 184, Total bytes read: 188416Chunks read: 185, Total bytes read: 189440Chunks read: 186, Total bytes read: 190464Chunks read: 187, Total bytes read: 191488Chunks read: 188, Total bytes read: 192512Chunks read: 189, Total bytes read: 193536Chunks read: 190, Total bytes read: 194560Chunks read: 191, Total bytes read: 195584Chunks read: 192, Total bytes read: 196608Chunks read: 193, Total bytes read: 197632Chunks read: 194, Total bytes read: 198656Chunks read: 195, Total bytes read: 199680Chunks read: 196, Total bytes read: 200704Chunks read: 197, Total bytes read: 201728Chunks read: 198, Total bytes read: 202752Chunks read: 199, Total bytes read: 203776Chunks read: 200, Total bytes read: 204800Chunks read: 201, Total bytes read: 205824Chunks read: 202, Total bytes read: 206848Chunks read: 203, Total bytes read: 207872Chunks read: 204, Total bytes read: 208896Chunks read: 205, Total bytes read: 209920Chunks read: 206, Total bytes read: 210944Chunks read: 207, Total bytes read: 211968Chunks read: 208, Total bytes read: 212992Chunks read: 209, Total bytes read: 214016Chunks read: 210, Total bytes read: 215040Chunks read: 211, Total bytes read: 216064Chunks read: 212, Total bytes read: 217088Chunks read: 213, Total bytes read: 218112Chunks read: 214, Total bytes read: 219136Chunks read: 215, Total bytes read: 220160Chunks read: 216, Total bytes read: 221184Chunks read: 217, Total bytes read: 222208Chunks read: 218, Total bytes read: 223232Chunks read: 219, Total bytes read: 224256Chunks read: 220, Total bytes read: 225280Chunks read: 221, Total bytes read: 226304Chunks read: 222, Total bytes read: 227328Chunks read: 223, Total bytes read: 228352Chunks read: 224, Total bytes read: 229376Chunks read: 225, Total bytes read: 230400Chunks read: 226, Total bytes read: 231424Chunks read: 227, Total bytes read: 232448Chunks read: 228, Total bytes read: 233472Chunks read: 229, Total bytes read: 234496Chunks read: 230, Total bytes read: 235520Chunks read: 231, Total bytes read: 236544Chunks read: 232, Total bytes read: 237568Chunks read: 233, Total bytes read: 238592Chunks read: 234, Total bytes read: 239616Chunks read: 235, Total bytes read: 240640Chunks read: 236, Total bytes read: 241664Chunks read: 237, Total bytes read: 242688Chunks read: 238, Total bytes read: 243712Chunks read: 239, Total bytes read: 244736Chunks read: 240, Total bytes read: 245760Chunks read: 241, Total bytes read: 246784Chunks read: 242, Total bytes read: 247808Chunks read: 243, Total bytes read: 248832Chunks read: 244, Total bytes read: 249856Chunks read: 245, Total bytes read: 250880Chunks read: 246, Total bytes read: 251904Chunks read: 247, Total bytes read: 252928Chunks read: 248, Total bytes read: 253952Chunks read: 249, Total bytes read: 254976Chunks read: 250, Total bytes read: 256000Chunks read: 251, Total bytes read: 257024Chunks read: 252, Total bytes read: 258048Chunks read: 253, Total bytes read: 259072Chunks read: 254, Total bytes read: 260096Chunks read: 255, Total bytes read: 261120Chunks read: 256, Total bytes read: 262144Chunks read: 257, Total bytes read: 263168Chunks read: 258, Total bytes read: 264192Chunks read: 259, Total bytes read: 265216Chunks read: 260, Total bytes read: 266240Chunks read: 261, Total bytes read: 267264Chunks read: 262, Total bytes read: 268288Chunks read: 263, Total bytes read: 269312Chunks read: 264, Total bytes read: 270336Chunks read: 265, Total bytes read: 271360Chunks read: 266, Total bytes read: 272384Chunks read: 267, Total bytes read: 273408Chunks read: 268, Total bytes read: 274432Chunks read: 269, Total bytes read: 275456Chunks read: 270, Total bytes read: 276480Chunks read: 271, Total bytes read: 277504Chunks read: 272, Total bytes read: 278528Chunks read: 273, Total bytes read: 279552Chunks read: 274, Total bytes read: 280576Chunks read: 275, Total bytes read: 281600Chunks read: 276, Total bytes read: 282624Chunks read: 277, Total bytes read: 283648Chunks read: 278, Total bytes read: 284672Chunks read: 279, Total bytes read: 285696Chunks read: 280, Total bytes read: 286720Chunks read: 281, Total bytes read: 287744Chunks read: 282, Total bytes read: 288768Chunks read: 283, Total bytes read: 289792Chunks read: 284, Total bytes read: 290816Chunks read: 285, Total bytes read: 291840Chunks read: 286, Total bytes read: 292864Chunks read: 287, Total bytes read: 293888Chunks read: 288, Total bytes read: 294912Chunks read: 289, Total bytes read: 295936Chunks read: 290, Total bytes read: 296960Chunks read: 291, Total bytes read: 297984Chunks read: 292, Total bytes read: 299008Chunks read: 293, Total bytes read: 300032Chunks read: 294, Total bytes read: 301056Chunks read: 295, Total bytes read: 302080Chunks read: 296, Total bytes read: 303104Chunks read: 297, Total bytes read: 304128Chunks read: 298, Total bytes read: 305152Chunks read: 299, Total bytes read: 306176Chunks read: 300, Total bytes read: 307200Chunks read: 301, Total bytes read: 308224Chunks read: 302, Total bytes read: 309248Chunks read: 303, Total bytes read: 310272Chunks read: 304, Total bytes read: 311296Chunks read: 305, Total bytes read: 312320Chunks read: 306, Total bytes read: 313344Chunks read: 307, Total bytes read: 314368Chunks read: 308, Total bytes read: 315392Chunks read: 309, Total bytes read: 316416Chunks read: 310, Total bytes read: 317440Chunks read: 311, Total bytes read: 318464Chunks read: 312, Total bytes read: 319488Chunks read: 313, Total bytes read: 320512Chunks read: 314, Total bytes read: 321536Chunks read: 315, Total bytes read: 322560Chunks read: 316, Total bytes read: 323584Chunks read: 317, Total bytes read: 324608Chunks read: 318, Total bytes read: 325632Chunks read: 319, Total bytes read: 326656Chunks read: 320, Total bytes read: 327680Chunks read: 321, Total bytes read: 328704Chunks read: 322, Total bytes read: 329728Chunks read: 323, Total bytes read: 330752Chunks read: 324, Total bytes read: 331776Chunks read: 325, Total bytes read: 332800Chunks read: 326, Total bytes read: 333824Chunks read: 327, Total bytes read: 334848Chunks read: 328, Total bytes read: 335872Chunks read: 329, Total bytes read: 336896Chunks read: 330, Total bytes read: 337920Chunks read: 331, Total bytes read: 338944Chunks read: 332, Total bytes read: 339968Chunks read: 333, Total bytes read: 340992Chunks read: 334, Total bytes read: 342016Chunks read: 335, Total bytes read: 343040Chunks read: 336, Total bytes read: 344064Chunks read: 337, Total bytes read: 345088Chunks read: 338, Total bytes read: 346112Chunks read: 339, Total bytes read: 347136Chunks read: 340, Total bytes read: 348160Chunks read: 341, Total bytes read: 349184Chunks read: 342, Total bytes read: 350208Chunks read: 343, Total bytes read: 351232Chunks read: 344, Total bytes read: 352256Chunks read: 345, Total bytes read: 353280Chunks read: 346, Total bytes read: 354304Chunks read: 347, Total bytes read: 355328Chunks read: 348, Total bytes read: 356352Chunks read: 349, Total bytes read: 357376Chunks read: 350, Total bytes read: 358400Chunks read: 351, Total bytes read: 359424Chunks read: 352, Total bytes read: 360448Chunks read: 353, Total bytes read: 361472Chunks read: 354, Total bytes read: 362496Chunks read: 355, Total bytes read: 363520Chunks read: 356, Total bytes read: 364544Chunks read: 357, Total bytes read: 365568Chunks read: 358, Total bytes read: 366592Chunks read: 359, Total bytes read: 367616Chunks read: 360, Total bytes read: 368640Chunks read: 361, Total bytes read: 369664Chunks read: 362, Total bytes read: 370688Chunks read: 363, Total bytes read: 371712Chunks read: 364, Total bytes read: 372736Chunks read: 365, Total bytes read: 373760Chunks read: 366, Total bytes read: 374784Chunks read: 367, Total bytes read: 375808Chunks read: 368, Total bytes read: 376832Chunks read: 369, Total bytes read: 377856Chunks read: 370, Total bytes read: 378880Chunks read: 371, Total bytes read: 379904Chunks read: 372, Total bytes read: 380928Chunks read: 373, Total bytes read: 381952Chunks read: 374, Total bytes read: 382976Chunks read: 375, Total bytes read: 384000Chunks read: 376, Total bytes read: 385024Chunks read: 377, Total bytes read: 386048Chunks read: 378, Total bytes read: 387072Chunks read: 379, Total bytes read: 388096Chunks read: 380, Total bytes read: 389120Chunks read: 381, Total bytes read: 390144Chunks read: 382, Total bytes read: 391168Chunks read: 383, Total bytes read: 392192Chunks read: 384, Total bytes read: 393216Chunks read: 385, Total bytes read: 394240Chunks read: 386, Total bytes read: 395264Chunks read: 387, Total bytes read: 396288Chunks read: 388, Total bytes read: 397312Chunks read: 389, Total bytes read: 398336Chunks read: 390, Total bytes read: 399360Chunks read: 391, Total bytes read: 400384Chunks read: 392, Total bytes read: 401408Chunks read: 393, Total bytes read: 402432Chunks read: 394, Total bytes read: 403456Chunks read: 395, Total bytes read: 404480Chunks read: 396, Total bytes read: 405504Chunks read: 397, Total bytes read: 406528Chunks read: 398, Total bytes read: 407552Chunks read: 399, Total bytes read: 408576Chunks read: 400, Total bytes read: 409600Chunks read: 401, Total bytes read: 410624Chunks read: 402, Total bytes read: 411648Chunks read: 403, Total bytes read: 412672Chunks read: 404, Total bytes read: 413696Chunks read: 405, Total bytes read: 414720Chunks read: 406, Total bytes read: 415744Chunks read: 407, Total bytes read: 416768Chunks read: 408, Total bytes read: 417792Chunks read: 409, Total bytes read: 418816Chunks read: 410, Total bytes read: 419840Chunks read: 411, Total bytes read: 420864Chunks read: 412, Total bytes read: 421888Chunks read: 413, Total bytes read: 422912Chunks read: 414, Total bytes read: 423936Chunks read: 415, Total bytes read: 424960Chunks read: 416, Total bytes read: 425984Chunks read: 417, Total bytes read: 427008Chunks read: 418, Total bytes read: 428032Chunks read: 419, Total bytes read: 429056Chunks read: 420, Total bytes read: 430080Chunks read: 421, Total bytes read: 431104Chunks read: 422, Total bytes read: 432128Chunks read: 423, Total bytes read: 433152Chunks read: 424, Total bytes read: 434176Chunks read: 425, Total bytes read: 435200Chunks read: 426, Total bytes read: 436224Chunks read: 427, Total bytes read: 437248Chunks read: 428, Total bytes read: 438272Chunks read: 429, Total bytes read: 439296Chunks read: 430, Total bytes read: 440320Chunks read: 431, Total bytes read: 441344Chunks read: 432, Total bytes read: 442368Chunks read: 433, Total bytes read: 443392Chunks read: 434, Total bytes read: 444416Chunks read: 435, Total bytes read: 445440Chunks read: 436, Total bytes read: 446464Chunks read: 437, Total bytes read: 447488Chunks read: 438, Total bytes read: 448512Chunks read: 439, Total bytes read: 449536Chunks read: 440, Total bytes read: 450560Chunks read: 441, Total bytes read: 451584Chunks read: 442, Total bytes read: 452608Chunks read: 443, Total bytes read: 453632Chunks read: 444, Total bytes read: 454656Chunks read: 445, Total bytes read: 455680Chunks read: 446, Total bytes read: 456704Chunks read: 447, Total bytes read: 457728Chunks read: 448, Total bytes read: 458752Chunks read: 449, Total bytes read: 459776Chunks read: 450, Total bytes read: 460800Chunks read: 451, Total bytes read: 461824Chunks read: 452, Total bytes read: 462848Chunks read: 453, Total bytes read: 463872Chunks read: 454, Total bytes read: 464896Chunks read: 455, Total bytes read: 465920Chunks read: 456, Total bytes read: 466944Chunks read: 457, Total bytes read: 467968Chunks read: 458, Total bytes read: 468992Chunks read: 459, Total bytes read: 470016Chunks read: 460, Total bytes read: 471040Chunks read: 461, Total bytes read: 472064Chunks read: 462, Total bytes read: 473088Chunks read: 463, Total bytes read: 474112Chunks read: 464, Total bytes read: 475136Chunks read: 465, Total bytes read: 476160Chunks read: 466, Total bytes read: 477184Chunks read: 467, Total bytes read: 478208Chunks read: 468, Total bytes read: 479232Chunks read: 469, Total bytes read: 480256Chunks read: 470, Total bytes read: 481280Chunks read: 471, Total bytes read: 482304Chunks read: 472, Total bytes read: 483328Chunks read: 473, Total bytes read: 484352Chunks read: 474, Total bytes read: 485376Chunks read: 475, Total bytes read: 486400Chunks read: 476, Total bytes read: 487424Chunks read: 477, Total bytes read: 488448Chunks read: 478, Total bytes read: 489472Chunks read: 479, Total bytes read: 490496Chunks read: 480, Total bytes read: 491520Chunks read: 481, Total bytes read: 492544Chunks read: 482, Total bytes read: 493568Chunks read: 483, Total bytes read: 494592Chunks read: 484, Total bytes read: 495616Chunks read: 485, Total bytes read: 496640Chunks read: 486, Total bytes read: 497664Chunks read: 487, Total bytes read: 498688Chunks read: 488, Total bytes read: 499712Chunks read: 489, Total bytes read: 500736Chunks read: 490, Total bytes read: 501760Chunks read: 491, Total bytes read: 502784Chunks read: 492, Total bytes read: 503808Chunks read: 493, Total bytes read: 504832Chunks read: 494, Total bytes read: 505856Chunks read: 495, Total bytes read: 506880Chunks read: 496, Total bytes read: 507904Chunks read: 497, Total bytes read: 508928Chunks read: 498, Total bytes read: 509952Chunks read: 499, Total bytes read: 510976Chunks read: 500, Total bytes read: 512000Chunks read: 501, Total bytes read: 513024Chunks read: 502, Total bytes read: 514048Chunks read: 503, Total bytes read: 515072Chunks read: 504, Total bytes read: 516096Chunks read: 505, Total bytes read: 517120Chunks read: 506, Total bytes read: 518144Chunks read: 507, Total bytes read: 519168Chunks read: 508, Total bytes read: 520192Chunks read: 509, Total bytes read: 521216Chunks read: 510, Total bytes read: 522240Chunks read: 511, Total bytes read: 523264Chunks read: 512, Total bytes read: 524288Chunks read: 513, Total bytes read: 525312Chunks read: 514, Total bytes read: 526336Chunks read: 515, Total bytes read: 527360Chunks read: 516, Total bytes read: 528384Chunks read: 517, Total bytes read: 529408Chunks read: 518, Total bytes read: 530432Chunks read: 519, Total bytes read: 531456Chunks read: 520, Total bytes read: 532480Chunks read: 521, Total bytes read: 533504Chunks read: 522, Total bytes read: 534528Chunks read: 523, Total bytes read: 535552Chunks read: 524, Total bytes read: 536576Chunks read: 525, Total bytes read: 537600Chunks read: 526, Total bytes read: 538624Chunks read: 527, Total bytes read: 539648Chunks read: 528, Total bytes read: 540672Chunks read: 529, Total bytes read: 541696Chunks read: 530, Total bytes read: 542720Chunks read: 531, Total bytes read: 543744Chunks read: 532, Total bytes read: 544768Chunks read: 533, Total bytes read: 545792Chunks read: 534, Total bytes read: 546816Chunks read: 535, Total bytes read: 547840Chunks read: 536, Total bytes read: 548864Chunks read: 537, Total bytes read: 549888Chunks read: 538, Total bytes read: 550912Chunks read: 539, Total bytes read: 551936Chunks read: 540, Total bytes read: 552960Chunks read: 541, Total bytes read: 553984Chunks read: 542, Total bytes read: 555008Chunks read: 543, Total bytes read: 556032Chunks read: 544, Total bytes read: 557056Chunks read: 545, Total bytes read: 558080Chunks read: 546, Total bytes read: 559104Chunks read: 547, Total bytes read: 560128Chunks read: 548, Total bytes read: 561152Chunks read: 549, Total bytes read: 562176Chunks read: 550, Total bytes read: 563200Chunks read: 551, Total bytes read: 564224Chunks read: 552, Total bytes read: 565248Chunks read: 553, Total bytes read: 566272Chunks read: 554, Total bytes read: 567296Chunks read: 555, Total bytes read: 568320Chunks read: 556, Total bytes read: 569344Chunks read: 557, Total bytes read: 570368Chunks read: 558, Total bytes read: 571392Chunks read: 559, Total bytes read: 572416Chunks read: 560, Total bytes read: 573440Chunks read: 561, Total bytes read: 574464Chunks read: 562, Total bytes read: 575488Chunks read: 563, Total bytes read: 576512Chunks read: 564, Total bytes read: 577536Chunks read: 565, Total bytes read: 578560Chunks read: 566, Total bytes read: 579584Chunks read: 567, Total bytes read: 580608Chunks read: 568, Total bytes read: 581632Chunks read: 569, Total bytes read: 582656Chunks read: 570, Total bytes read: 583680Chunks read: 571, Total bytes read: 584704Chunks read: 572, Total bytes read: 585728Chunks read: 573, Total bytes read: 586752Chunks read: 574, Total bytes read: 587776Chunks read: 575, Total bytes read: 588800Chunks read: 576, Total bytes read: 589824Chunks read: 577, Total bytes read: 590848Chunks read: 578, Total bytes read: 591872Chunks read: 579, Total bytes read: 592896Chunks read: 580, Total bytes read: 593920Chunks read: 581, Total bytes read: 594944Chunks read: 582, Total bytes read: 595968Chunks read: 583, Total bytes read: 596992Chunks read: 584, Total bytes read: 598016Chunks read: 585, Total bytes read: 599040Chunks read: 586, Total bytes read: 600064Chunks read: 587, Total bytes read: 601088Chunks read: 588, Total bytes read: 602112Chunks read: 589, Total bytes read: 603136Chunks read: 590, Total bytes read: 604160Chunks read: 591, Total bytes read: 605184Chunks read: 592, Total bytes read: 606208Chunks read: 593, Total bytes read: 607232Chunks read: 594, Total bytes read: 608256Chunks read: 595, Total bytes read: 609280Chunks read: 596, Total bytes read: 610304Chunks read: 597, Total bytes read: 611328Chunks read: 598, Total bytes read: 612352Chunks read: 599, Total bytes read: 613376Chunks read: 600, Total bytes read: 614400Chunks read: 601, Total bytes read: 615424Chunks read: 602, Total bytes read: 616448Chunks read: 603, Total bytes read: 617472Chunks read: 604, Total bytes read: 618496Chunks read: 605, Total bytes read: 619520Chunks read: 606, Total bytes read: 620544Chunks read: 607, Total bytes read: 621568Chunks read: 608, Total bytes read: 622592Chunks read: 609, Total bytes read: 623616Chunks read: 610, Total bytes read: 624640Chunks read: 611, Total bytes read: 625664Chunks read: 612, Total bytes read: 626688Chunks read: 613, Total bytes read: 627712Chunks read: 614, Total bytes read: 628736Chunks read: 615, Total bytes read: 629760Chunks read: 616, Total bytes read: 630784Chunks read: 617, Total bytes read: 631808Chunks read: 618, Total bytes read: 632832Chunks read: 619, Total bytes read: 633856Chunks read: 620, Total bytes read: 634880Chunks read: 621, Total bytes read: 635904Chunks read: 622, Total bytes read: 636928Chunks read: 623, Total bytes read: 637952Chunks read: 624, Total bytes read: 638976Chunks read: 625, Total bytes read: 640000Chunks read: 626, Total bytes read: 641024Chunks read: 627, Total bytes read: 642048Chunks read: 628, Total bytes read: 643072Chunks read: 629, Total bytes read: 644096Chunks read: 630, Total bytes read: 645120Chunks read: 631, Total bytes read: 646144Chunks read: 632, Total bytes read: 647168Chunks read: 633, Total bytes read: 648192Chunks read: 634, Total bytes read: 649216Chunks read: 635, Total bytes read: 650240Chunks read: 636, Total bytes read: 651264Chunks read: 637, Total bytes read: 652288Chunks read: 638, Total bytes read: 653312Chunks read: 639, Total bytes read: 654336Chunks read: 640, Total bytes read: 655360Chunks read: 641, Total bytes read: 656384Chunks read: 642, Total bytes read: 657408Chunks read: 643, Total bytes read: 658432Chunks read: 644, Total bytes read: 659456Chunks read: 645, Total bytes read: 660480Chunks read: 646, Total bytes read: 661504Chunks read: 647, Total bytes read: 662528Chunks read: 648, Total bytes read: 663552Chunks read: 649, Total bytes read: 664576Chunks read: 650, Total bytes read: 665600Chunks read: 651, Total bytes read: 666624Chunks read: 652, Total bytes read: 667648Chunks read: 653, Total bytes read: 668672Chunks read: 654, Total bytes read: 669696Chunks read: 655, Total bytes read: 670720Chunks read: 656, Total bytes read: 671744Chunks read: 657, Total bytes read: 672768Chunks read: 658, Total bytes read: 673792Chunks read: 659, Total bytes read: 674816Chunks read: 660, Total bytes read: 675840Chunks read: 661, Total bytes read: 676864Chunks read: 662, Total bytes read: 677888Chunks read: 663, Total bytes read: 678912Chunks read: 664, Total bytes read: 679936Chunks read: 665, Total bytes read: 680960Chunks read: 666, Total bytes read: 681984Chunks read: 667, Total bytes read: 683008Chunks read: 668, Total bytes read: 684032Chunks read: 669, Total bytes read: 685056Chunks read: 670, Total bytes read: 686080Chunks read: 671, Total bytes read: 687104Chunks read: 672, Total bytes read: 688128Chunks read: 673, Total bytes read: 689152Chunks read: 674, Total bytes read: 690176Chunks read: 675, Total bytes read: 691200Chunks read: 676, Total bytes read: 692224Chunks read: 677, Total bytes read: 693248Chunks read: 678, Total bytes read: 694272Chunks read: 679, Total bytes read: 695296Chunks read: 680, Total bytes read: 696320Chunks read: 681, Total bytes read: 697344Chunks read: 682, Total bytes read: 698368Chunks read: 683, Total bytes read: 699392Chunks read: 684, Total bytes read: 700416Chunks read: 685, Total bytes read: 701440Chunks read: 686, Total bytes read: 702464Chunks read: 687, Total bytes read: 703488Chunks read: 688, Total bytes read: 704512Chunks read: 689, Total bytes read: 705536Chunks read: 690, Total bytes read: 706560Chunks read: 691, Total bytes read: 707584Chunks read: 692, Total bytes read: 708608Chunks read: 693, Total bytes read: 709632Chunks read: 694, Total bytes read: 710656Chunks read: 695, Total bytes read: 711680Chunks read: 696, Total bytes read: 712704Chunks read: 697, Total bytes read: 713728Chunks read: 698, Total bytes read: 714752Chunks read: 699, Total bytes read: 715776Chunks read: 700, Total bytes read: 716800Chunks read: 701, Total bytes read: 717824Chunks read: 702, Total bytes read: 718848Chunks read: 703, Total bytes read: 719872Chunks read: 704, Total bytes read: 720896Chunks read: 705, Total bytes read: 721920Chunks read: 706, Total bytes read: 722944Chunks read: 707, Total bytes read: 723968Chunks read: 708, Total bytes read: 724992Chunks read: 709, Total bytes read: 726016Chunks read: 710, Total bytes read: 727040Chunks read: 711, Total bytes read: 728064Chunks read: 712, Total bytes read: 729088Chunks read: 713, Total bytes read: 730112Chunks read: 714, Total bytes read: 731136Chunks read: 715, Total bytes read: 732160Chunks read: 716, Total bytes read: 733184Chunks read: 717, Total bytes read: 734208Chunks read: 718, Total bytes read: 735232Chunks read: 719, Total bytes read: 736256Chunks read: 720, Total bytes read: 737280Chunks read: 721, Total bytes read: 738304Chunks read: 722, Total bytes read: 739328Chunks read: 723, Total bytes read: 740352Chunks read: 724, Total bytes read: 741376Chunks read: 725, Total bytes read: 742400Chunks read: 726, Total bytes read: 743424Chunks read: 727, Total bytes read: 744448Chunks read: 728, Total bytes read: 745472Chunks read: 729, Total bytes read: 746496Chunks read: 730, Total bytes read: 747520Chunks read: 731, Total bytes read: 748544Chunks read: 732, Total bytes read: 749568Chunks read: 733, Total bytes read: 750592Chunks read: 734, Total bytes read: 751616Chunks read: 735, Total bytes read: 752640Chunks read: 736, Total bytes read: 753664Chunks read: 737, Total bytes read: 754688Chunks read: 738, Total bytes read: 755712Chunks read: 739, Total bytes read: 756736Chunks read: 740, Total bytes read: 757760Chunks read: 741, Total bytes read: 758784Chunks read: 742, Total bytes read: 759808Chunks read: 743, Total bytes read: 760832Chunks read: 744, Total bytes read: 761856Chunks read: 745, Total bytes read: 762880Chunks read: 746, Total bytes read: 763904Chunks read: 747, Total bytes read: 764928Chunks read: 748, Total bytes read: 765952Chunks read: 749, Total bytes read: 766976Chunks read: 750, Total bytes read: 768000Chunks read: 751, Total bytes read: 769024Chunks read: 752, Total bytes read: 770048Chunks read: 753, Total bytes read: 771072Chunks read: 754, Total bytes read: 772096Chunks read: 755, Total bytes read: 773120Chunks read: 756, Total bytes read: 774144Chunks read: 757, Total bytes read: 775168Chunks read: 758, Total bytes read: 776192Chunks read: 759, Total bytes read: 777216Chunks read: 760, Total bytes read: 778240Chunks read: 761, Total bytes read: 779264Chunks read: 762, Total bytes read: 780288Chunks read: 763, Total bytes read: 781312Chunks read: 764, Total bytes read: 782336Chunks read: 765, Total bytes read: 783360Chunks read: 766, Total bytes read: 784384Chunks read: 767, Total bytes read: 785408Chunks read: 768, Total bytes read: 786432Chunks read: 769, Total bytes read: 787456Chunks read: 770, Total bytes read: 788480Chunks read: 771, Total bytes read: 789504Chunks read: 772, Total bytes read: 790528Chunks read: 773, Total bytes read: 791552Chunks read: 774, Total bytes read: 792576Chunks read: 775, Total bytes read: 793600Chunks read: 776, Total bytes read: 794624Chunks read: 777, Total bytes read: 795648Chunks read: 778, Total bytes read: 796672Chunks read: 779, Total bytes read: 797696Chunks read: 780, Total bytes read: 798720Chunks read: 781, Total bytes read: 799744Chunks read: 782, Total bytes read: 800768Chunks read: 783, Total bytes read: 801792Chunks read: 784, Total bytes read: 802816Chunks read: 785, Total bytes read: 803840Chunks read: 786, Total bytes read: 804864Chunks read: 787, Total bytes read: 805888Chunks read: 788, Total bytes read: 806912Chunks read: 789, Total bytes read: 807936Chunks read: 790, Total bytes read: 808960Chunks read: 791, Total bytes read: 809984Chunks read: 792, Total bytes read: 811008Chunks read: 793, Total bytes read: 812032Chunks read: 794, Total bytes read: 813056Chunks read: 795, Total bytes read: 814080Chunks read: 796, Total bytes read: 815104Chunks read: 797, Total bytes read: 816128Chunks read: 798, Total bytes read: 817152Chunks read: 799, Total bytes read: 818176Chunks read: 800, Total bytes read: 819200Chunks read: 801, Total bytes read: 820224Chunks read: 802, Total bytes read: 821248Chunks read: 803, Total bytes read: 822272Chunks read: 804, Total bytes read: 823296Chunks read: 805, Total bytes read: 824320Chunks read: 806, Total bytes read: 825344Chunks read: 807, Total bytes read: 826368Chunks read: 808, Total bytes read: 827392Chunks read: 809, Total bytes read: 828416Chunks read: 810, Total bytes read: 829440Chunks read: 811, Total bytes read: 830464Chunks read: 812, Total bytes read: 831488Chunks read: 813, Total bytes read: 832512Chunks read: 814, Total bytes read: 833536Chunks read: 815, Total bytes read: 834560Chunks read: 816, Total bytes read: 835584Chunks read: 817, Total bytes read: 836608Chunks read: 818, Total bytes read: 837632Chunks read: 819, Total bytes read: 838656Chunks read: 820, Total bytes read: 839680Chunks read: 821, Total bytes read: 840704Chunks read: 822, Total bytes read: 841728Chunks read: 823, Total bytes read: 842752Chunks read: 824, Total bytes read: 843776Chunks read: 825, Total bytes read: 844800Chunks read: 826, Total bytes read: 845824Chunks read: 827, Total bytes read: 846848Chunks read: 828, Total bytes read: 847872Chunks read: 829, Total bytes read: 848896Chunks read: 830, Total bytes read: 849920Chunks read: 831, Total bytes read: 850944Chunks read: 832, Total bytes read: 851968Chunks read: 833, Total bytes read: 852992Chunks read: 834, Total bytes read: 854016Chunks read: 835, Total bytes read: 855040Chunks read: 836, Total bytes read: 856064Chunks read: 837, Total bytes read: 857088Chunks read: 838, Total bytes read: 858112Chunks read: 839, Total bytes read: 859136Chunks read: 840, Total bytes read: 860160Chunks read: 841, Total bytes read: 861184Chunks read: 842, Total bytes read: 862208Chunks read: 843, Total bytes read: 863232Chunks read: 844, Total bytes read: 864256Chunks read: 845, Total bytes read: 865280Chunks read: 846, Total bytes read: 866304Chunks read: 847, Total bytes read: 867328Chunks read: 848, Total bytes read: 868352Chunks read: 849, Total bytes read: 869376Chunks read: 850, Total bytes read: 870400Chunks read: 851, Total bytes read: 871424Chunks read: 852, Total bytes read: 872448Chunks read: 853, Total bytes read: 873472Chunks read: 854, Total bytes read: 874496Chunks read: 855, Total bytes read: 875520Chunks read: 856, Total bytes read: 876544Chunks read: 857, Total bytes read: 877568Chunks read: 858, Total bytes read: 878592Chunks read: 859, Total bytes read: 879616Chunks read: 860, Total bytes read: 880640Chunks read: 861, Total bytes read: 881664Chunks read: 862, Total bytes read: 882688Chunks read: 863, Total bytes read: 883712Chunks read: 864, Total bytes read: 884736Chunks read: 865, Total bytes read: 885760Chunks read: 866, Total bytes read: 886784Chunks read: 867, Total bytes read: 887808Chunks read: 868, Total bytes read: 888832Chunks read: 869, Total bytes read: 889856Chunks read: 870, Total bytes read: 890880Chunks read: 871, Total bytes read: 891904Chunks read: 872, Total bytes read: 892928Chunks read: 873, Total bytes read: 893952Chunks read: 874, Total bytes read: 894976Chunks read: 875, Total bytes read: 896000Chunks read: 876, Total bytes read: 897024Chunks read: 877, Total bytes read: 898048Chunks read: 878, Total bytes read: 899072Chunks read: 879, Total bytes read: 900096Chunks read: 880, Total bytes read: 901120Chunks read: 881, Total bytes read: 902144Chunks read: 882, Total bytes read: 903168Chunks read: 883, Total bytes read: 904192Chunks read: 884, Total bytes read: 905216Chunks read: 885, Total bytes read: 906240Chunks read: 886, Total bytes read: 907264Chunks read: 887, Total bytes read: 908288Chunks read: 888, Total bytes read: 909312Chunks read: 889, Total bytes read: 910336Chunks read: 890, Total bytes read: 911360Chunks read: 891, Total bytes read: 912384Chunks read: 892, Total bytes read: 913408Chunks read: 893, Total bytes read: 914432Chunks read: 894, Total bytes read: 915456Chunks read: 895, Total bytes read: 916480Chunks read: 896, Total bytes read: 917504Chunks read: 897, Total bytes read: 918528Chunks read: 898, Total bytes read: 919552Chunks read: 899, Total bytes read: 920576Chunks read: 900, Total bytes read: 921600Chunks read: 901, Total bytes read: 922624Chunks read: 902, Total bytes read: 923648Chunks read: 903, Total bytes read: 924672Chunks read: 904, Total bytes read: 925696Chunks read: 905, Total bytes read: 926720Chunks read: 906, Total bytes read: 927744Chunks read: 907, Total bytes read: 928768Chunks read: 908, Total bytes read: 929792Chunks read: 909, Total bytes read: 930816Chunks read: 910, Total bytes read: 931840Chunks read: 911, Total bytes read: 932864Chunks read: 912, Total bytes read: 933888Chunks read: 913, Total bytes read: 934912Chunks read: 914, Total bytes read: 935936Chunks read: 915, Total bytes read: 936960Chunks read: 916, Total bytes read: 937984Chunks read: 917, Total bytes read: 939008Chunks read: 918, Total bytes read: 940032Chunks read: 919, Total bytes read: 941056Chunks read: 920, Total bytes read: 942080Chunks read: 921, Total bytes read: 943104Chunks read: 922, Total bytes read: 944128Chunks read: 923, Total bytes read: 945152Chunks read: 924, Total bytes read: 946176Chunks read: 925, Total bytes read: 947200Chunks read: 926, Total bytes read: 948224Chunks read: 927, Total bytes read: 949248Chunks read: 928, Total bytes read: 950272Chunks read: 929, Total bytes read: 951296Chunks read: 930, Total bytes read: 952320Chunks read: 931, Total bytes read: 953344Chunks read: 932, Total bytes read: 954368Chunks read: 933, Total bytes read: 955392Chunks read: 934, Total bytes read: 956416Chunks read: 935, Total bytes read: 957440Chunks read: 936, Total bytes read: 958464Chunks read: 937, Total bytes read: 959488Chunks read: 938, Total bytes read: 960512Chunks read: 939, Total bytes read: 961536Chunks read: 940, Total bytes read: 962560Chunks read: 941, Total bytes read: 963584Chunks read: 942, Total bytes read: 964608Chunks read: 943, Total bytes read: 965632Chunks read: 944, Total bytes read: 966656Chunks read: 945, Total bytes read: 967680Chunks read: 946, Total bytes read: 968704Chunks read: 947, Total bytes read: 969728Chunks read: 948, Total bytes read: 970752Chunks read: 949, Total bytes read: 971776Chunks read: 950, Total bytes read: 972800Chunks read: 951, Total bytes read: 973824Chunks read: 952, Total bytes read: 974848Chunks read: 953, Total bytes read: 975872Chunks read: 954, Total bytes read: 976896Chunks read: 955, Total bytes read: 977920Chunks read: 956, Total bytes read: 978944Chunks read: 957, Total bytes read: 979968Chunks read: 958, Total bytes read: 980992Chunks read: 959, Total bytes read: 982016Chunks read: 960, Total bytes read: 983040Chunks read: 961, Total bytes read: 984064Chunks read: 962, Total bytes read: 985088Chunks read: 963, Total bytes read: 986112Chunks read: 964, Total bytes read: 987136Chunks read: 965, Total bytes read: 988160Chunks read: 966, Total bytes read: 989184Chunks read: 967, Total bytes read: 990208Chunks read: 968, Total bytes read: 991232Chunks read: 969, Total bytes read: 992256Chunks read: 970, Total bytes read: 993280Chunks read: 971, Total bytes read: 993344I (32133) chksum: Calculated MD5 checksum: 2e1977f2078ce97fe7a3d3f84fefa13e
-[0;32mI (32133) sparknode_ota_updater: Remote checksum     --> 2e1977f2078ce97fe7a3d3f84fefa13e (length: 32)[0m
-[0;32mI (32133) sparknode_ota_updater: Calculated checksum --> 2e1977f2078ce97fe7a3d3f84fefa13e (length: 32)[0m
-[0;32mI (32143) sparknode_ota_updater: Checksum verification successful: 2e1977f2078ce97fe7a3d3f84fefa13e[0m
-[0;32mI (32163) sparknode_ota_updater: Stored remote checksum in NVS: 2e1977f2078ce97fe7a3d3f84fefa13e[0m
-[0;32mI (32163) esp_image: segment 0: paddr=00110020 vaddr=3f400020 size=26b00h (158464) map[0m
-[0;32mI (32203) esp_image: segment 1: paddr=00136b28 vaddr=3ff80000 size=0001ch (    28) [0m
-[0;32mI (32213) esp_image: segment 2: paddr=00136b4c vaddr=3ffb0000 size=03fc0h ( 16320) [0m
-[0;32mI (32223) esp_image: segment 3: paddr=0013ab14 vaddr=40080000 size=05504h ( 21764) [0m
-[0;32mI (32243) esp_image: segment 4: paddr=00140020 vaddr=400d0020 size=ac1f8h (705016) map[0m
-[0;32mI (32393) esp_image: segment 5: paddr=001ec220 vaddr=40085504 size=165f4h ( 91636) [0m
-[0;32mI (32503) sparknode_ota_updater: OTA update successful, restarting...[0m
-[0;32mI (33503) led_control: Indicating success with flash LED[0m
-[0;32mI (33803) log_time: Elapsed time - 0 min, 33 sec, 6 msec, 329 usec.[0m
-[0;32mI (33803) sparknode_ota_updater: Entering deep sleep for clean restart...[0m
-ets Jul 29 2019 12:21:46
-
-rst:0x5 (DEEPSLEEP_RESET),boot:0x1b (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:1
-load:0x3fff0030,len:6368
-load:0x40078000,len:15848
-load:0x40080400,len:3860
-0x40080400: _invalid_pc_placeholder at /home/ismet/esp/esp-idf/components/xtensa/xtensa_vectors.S:2235
-entry 0x40080638
-[0;32mI (27) boot: ESP-IDF v5.5-dev-2182-ga6c3a9cbbb 2nd stage bootloader[0m
-[0;32mI (27) boot: compile time Aug 13 2025 21:02:50[0m
-[0;32mI (27) boot: Multicore bootloader[0m
-[0;32mI (31) boot: chip revision: v3.0[0m
-[0;32mI (33) boot.esp32: SPI Speed      : 80MHz[0m
-[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
-[0;32mI (41) boot.esp32: SPI Flash Size : 4MB[0m
-[0;32mI (44) boot: Enabling RNG early entropy source...[0m
-[0;32mI (49) boot: Partition Table:[0m
-[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 000f8000[0m
-[0;32mI (77) boot:  3 ota_data         OTA data         01 00 00108000 00002000[0m
-[0;32mI (84) boot:  4 ota_0            OTA app          00 10 00110000 002f0000[0m
-[0;32mI (90) boot: End of partition table[0m
-[0;32mI (94) esp_image: segment 0: paddr=00110020 vaddr=3f400020 size=26b00h (158464) map[0m
-[0;32mI (146) esp_image: segment 1: paddr=00136b28 vaddr=3ff80000 size=0001ch (    28) [0m
-[0;32mI (146) esp_image: segment 2: paddr=00136b4c vaddr=3ffb0000 size=03fc0h ( 16320) load[0m
-[0;32mI (154) esp_image: segment 3: paddr=0013ab14 vaddr=40080000 size=05504h ( 21764) load[0m
-[0;32mI (164) esp_image: segment 4: paddr=00140020 vaddr=400d0020 size=ac1f8h (705016) map[0m
-[0;32mI (363) esp_image: segment 5: paddr=001ec220 vaddr=40085504 size=165f4h ( 91636) load[0m
-[0;32mI (407) boot: Loaded app from partition at offset 0x110000[0m
-[0;32mI (407) boot: Disabling RNG early entropy source...[0m
-[0;32mI (417) quad_psram: This chip is ESP32-D0WD[0m
-[0;32mI (418) esp_psram: Found 2MB PSRAM device[0m
-[0;32mI (418) esp_psram: Speed: 80MHz[0m
-[0;32mI (418) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
-[0;32mI (425) cpu_start: Multicore app[0m
-[0;32mI (694) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (702) cpu_start: Pro cpu start user code[0m
-[0;32mI (702) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (702) app_init: Application information:[0m
-[0;32mI (702) app_init: Project name:     sparknode_icm20948[0m
-[0;32mI (707) app_init: App version:      ota_update_scheme_1-38-ge8dd2f9[0m
-[0;32mI (713) app_init: Compile time:     Aug 13 2025 21:06:46[0m
-[0;32mI (718) app_init: ELF file SHA256:  225989f0f...[0m
-[0;32mI (723) app_init: ESP-IDF:          v5.5-dev-2182-ga6c3a9cbbb[0m
-[0;32mI (728) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (732) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (736) efuse_init: Chip rev:         v3.0[0m
-[0;32mI (740) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (746) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (751) heap_init: At 3FFB90A8 len 00026F58 (155 KiB): DRAM[0m
-[0;32mI (756) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (762) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (767) heap_init: At 4009BAF8 len 00004508 (17 KiB): IRAM[0m
-[0;32mI (773) esp_psram: Adding pool of 2048K of PSRAM memory to heap allocator[0m
-[0;32mI (780) spi_flash: detected chip: generic[0m
-[0;32mI (783) spi_flash: flash io: dio[0m
-[0;32mI (787) main_task: Started on CPU0[0m
-[0;32mI (797) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (797) main_task: Calling app_main()[0m
-[0;32mI (797) led_control: Initializing GPIOs for LEDs[0m
-[0;32mI (797) gpio: GPIO[4]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (807) gpio: GPIO[33]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (817) led_control: Testing LEDS[0m
-[0;32mI (2087) wifi_net: Initializing Wi-Fi in station mode...[0m
-[0;32mI (2107) wifi:wifi driver task: 3ffc232c, prio:23, stack:6656, core=0[0m
-[0;32mI (2107) wifi:wifi firmware version: fe7fdd4[0m
-[0;32mI (2107) wifi:wifi certification version: v7.0[0m
-[0;32mI (2117) wifi:config NVS flash: enabled[0m
-[0;32mI (2117) wifi:config nano formatting: disabled[0m
-[0;32mI (2117) wifi:Init data frame dynamic rx buffer num: 32[0m
-[0;32mI (2117) wifi:Init static rx mgmt buffer num: 5[0m
-[0;32mI (2127) wifi:Init management short buffer num: 32[0m
-[0;32mI (2127) wifi:Init dynamic tx buffer num: 32[0m
-[0;32mI (2137) wifi:Init static rx buffer size: 1600[0m
-[0;32mI (2137) wifi:Init static rx buffer num: 10[0m
-[0;32mI (2147) wifi:Init dynamic rx buffer num: 32[0m
-[0;32mI (2147) wifi_init: rx ba win: 6[0m
-[0;32mI (2147) wifi_init: accept mbox: 6[0m
-[0;32mI (2157) wifi_init: tcpip mbox: 32[0m
-[0;32mI (2157) wifi_init: udp mbox: 6[0m
-[0;32mI (2157) wifi_init: tcp mbox: 6[0m
-[0;32mI (2157) wifi_init: tcp tx win: 5760[0m
-[0;32mI (2167) wifi_init: tcp rx win: 5760[0m
-[0;32mI (2167) wifi_init: tcp mss: 1440[0m
-[0;32mI (2167) wifi_init: WiFi IRAM OP enabled[0m
-[0;32mI (2177) wifi_init: WiFi RX IRAM OP enabled[0m
-[0;33mW (2177) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
-[0;32mI (2197) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
-[0;32mI (2207) wifi:mode : sta (c0:49:ef:d2:0f:d0)[0m
-[0;32mI (2207) wifi:enable tsf[0m
-[0;32mI (2207) wifi_net: wifi_sta initalization is complete, waiting for connection...[0m
-[0;32mI (2217) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (2217) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (2227) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (2227) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (2237) wifi:<ba-add>idx:0 (ifx:0, 5c:63:bf:c7:8e:d9), tid:0, ssn:0, winSize:64[0m
-[0;32mI (2257) wifi:connected with TurkTelekom_TEFC5, aid = 13, channel 11, BW20, bssid = 5c:63:bf:c7:8e:d9[0m
-[0;32mI (2257) wifi:security: WPA2-PSK, phy: bgn, rssi: -51[0m
-[0;32mI (2267) wifi:pm start, type: 1[0m
-
-[0;32mI (2267) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (2277) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
-[0;32mI (3807) esp_netif_handlers: sta ip: 192.168.1.115, mask: 255.255.255.0, gw: 192.168.1.1[0m
-[0;32mI (3807) wifi_net: Got IP: 192.168.1.115[0m
-[0;32mI (3807) UDP_LOG: UDP logging initialized to 192.168.1.108:10001[0m
-[0;32mI (3807) sparknode_icm20948: Redirecting/copying log messages over UDP...[0m
-[0;32mI (3817) sparknode_icm20948: OTA update enabled[0m
-[0;32mI (3817) chk_update: Reading remote checksum...[0m
-[0;32mI (3827) read_chksm: Opening HTTP connection to http://192.168.1.108:8000/app.md5[0m
-[0;32mI (4597) chk_update: Remote checksum --> 2e1977f2078ce97fe7a3d3f84fefa13e (Length: 32)[0m
-[0;32mI (4597) chk_update: Checksums match --> 2e1977f2078ce97fe7a3d3f84fefa13e[0m
-[0;32mI (4607) led_control: Indicating success with flash LED[0m
-[0;32mI (4907) esp32_info: CPU Clock Frequency: 240 MHz[0m
-[0;32mI (4907) esp32_info: This is an esp32 chip with 2 CPU core(s) with  WiFi BT BLE [0m
-[0;32mI (4907) esp32_info: Silicon revision: v3.0 [0m
-[0;32mI (4907) esp32_info: Base MAC address: C0:49:EF:D2:0F:D0[0m
-[0;32mI (4917) esp32_info: SRAM Size: 337 KB (Total), 231 KB (Free)[0m
-[0;32mI (4917) esp32_info: Minimum free heap size: 2278316 bytes[0m
-[0;32mI (4927) esp32_info: Free heap: 2282684[0m
-[0;32mI (4927) esp32_info: Free internal heap: 219607[0m
-[0;32mI (4937) esp32_info: Total PSRAM: 2 MB[0m
-[0;32mI (4937) esp32_info: Free PSRAM: 1 MB[0m
-[0;32mI (4937) esp32_info: Flash memory: 4 MB external [0m
-[0;32mI (4947) esp32_info: WiFi MAC Address= C0:49:EF:D2:0F:D0[0m
-[0;32mI (4947) esp32_info: BlueTooth MAC Address= C0:49:EF:D2:0F:D2[0m
-[0;32mI (4957) sparknode_icm20948: Connected to TurkTelekom_TEFC5[0m
-[0;32mI (4957) sparknode_icm20948: RSSI: -58 dBm[0m
-[0;32mI (4967) sparknode_icm20948: SparkNode ID is 3[0m
-[0;32mI (4967) main: I2C Master initialized successfully[0m
-[0;32mI (4967) main: Starting I2C scan...[0m
-[0;32mI (4987) main: Found device at 0x68[0m
-[0;32mI (4997) main: Found device at 0x76[0m
-[0;32mI (4997) main: I2C scan complete. 2 device(s) found.[0m
-[0;32mI (4997) BMP388: BMP388 Soft Reset triggered.[0m
-[0;32mI (5047) BMP388: BMP388 Power Mode set to Normal.[0m
-[0;32mI (5047) BMP388: BMP388 Oversampling set (Pressure x8, Temperature x1).[0m
-[0;32mI (5047) BMP388: BMP388 Output Data Rate set to 25/16 Hz.[0m
-[0;32mI (5047) BMP388: BMP388 IIR Filter Coefficients set to 3.[0m
-[0;32mI (5057) BMP388: Reading calibration coefficients from BMP388.[0m
-[0;32mI (5057) BMP388: Calibration Coefficients (Double):[0m
-[0;32mI (5067) BMP388: par_t1: 7161856.000000, par_t2: 0.0000174027, par_t3: -0.0000000000[0m
-[0;32mI (5067) BMP388: par_p1: -0.014908, par_p2: -0.000034, par_p3: 0.000000[0m
-[0;32mI (5077) BMP388: par_p4: 0.000000, par_p5: 194256.000000, par_p6: 462.796875[0m
-[0;32mI (5087) BMP388: par_p7: -0.050781, par_p8: -0.000305, par_p9: 0.000000[0m
-[0;32mI (5087) BMP388: par_p10: 0.000000, par_p11: -0.000000[0m
-[0;32mI (5147) BMP388: BMP388 initialization complete.[0m
-[0;32mI (6147) BMP388: Starting raw data read from BMP388.[0m
-[0;32mI (6147) BMP388: Address transmitted successfully. Reading raw data...[0m
-[0;32mI (6147) BMP388: Raw data successfully received.[0m
-[0;32mI (6147) BMP388: Raw Pressure: 6859648, Raw Temperature: 8870912[0m
-[0;32mI (6157) BMP388: Compensated Temperature: 29.64 °C[0m
-[0;32mI (6157) BMP388: Compensated Pressure: 101024.84 Pa[0m
-[0;32mI (6167) sparknode_icm20948: icm20948_dev_cfg struct created [0m
-[0;32mI (6167) sparknode_icm20948: Starting verification [0m
-[0;32mI (6177) icm20948_sensors: ICM20948 detected successfully. WHO_AM_I: 0xEA[0m
-[0;32mI (6177) sparknode_icm20948: The end of app_main program[0m
-[0;32mI (6187) icm20948_sensors: ICM20948 Sensor initialization started[0m
-[0;32mI (6187) icm20948_sensors: Step 1 - Soft Reset is successful[0m
-[0;32mI (6297) icm20948_sensors: Step 2 - Wait for 100ms after Soft Reset[0m
-[0;32mI (6297) icm20948_sensors: Step 3 - Internal system clock sources is set to Auto 001.[0m
-[0;32mI (6307) icm20948_sensors: Step 4 - Wait 10ms for PLL stabilization [0m
-[0;32mI (6307) icm20948_sensors: Step 5 - AUX I2C Master Mode enabled.[0m
-[0;32mI (6307) icm20948_sensors: Step 6 - AUX I2C Bypass Mode disabled.[0m
-[0;32mI (6317) icm20948_sensors: Step 7 - All Gyro and Accel Axes are enabled.[0m
-[0;32mI (6317) icm20948_sensors: Step 7.5 - Configuring Accel/Gyro Digital Low Pass Filters and Full Scale with different values[0m
-[0;32mI (6337) icm20948_sensors:  Accel/Gyro DLPF enabled successfully with different configurations.[0m
-[0;32mI (6337) icm20948_sensors: Step 8 - Gyroscope ODR configured to 225 Hz[0m
-[0;32mI (6347) icm20948_sensors: Step 9 - Accelerometer ODR configured to 225 Hz[0m
-[0;32mI (6367) icm20948_sensors: Step 9.5 - ODR Read-Back Verification[0m
-[0;32mI (6367) icm20948_sensors:  ODR Read-Back Verification: GYRO_SMPLRT_DIV = 4, ACCEL_SMPLRT_DIV_2 = 4[0m
-[0;32mI (6367) icm20948_sensors: Step 10 - Magnetometer(AK09916) initialization started[0m
-[0;32mI (6387) icm20948_sensors:  Magnetometer Soft Reset triggered via AUX I2C Master.[0m
-[0;32mI (6397) icm20948_sensors:  Magnetometer WHO_AM_I verified as 0x09 on try 1..[0m
-[0;32mI (6397) icm20948_sensors:  Magnetometer initialization successful.[0m
-[0;32mI (6397) icm20948_sensors: Step 11 - AUX I2C Master control configured.[0m
-[0;32mI (6407) icm20948_sensors: Step 12 - AUX I2C Master ODR set to ~8.59 Hz to match magnetometer update cycle.[0m
-[0;32mI (6417) icm20948_sensors: Step 14 - AUX I2C Slave 0 address set for Magnetometer read.[0m
-[0;32mI (6417) icm20948_sensors: Step 14 - AUX I2C Slave 0 register set to Magnetometer data start (0x10).[0m
-[0;32mI (6427) icm20948_sensors: Step 14 - AUX I2C Slave 0 control set to read 9 bytes and enabled.[0m
-[0;32mI (6437) icm20948_sensors: Step 15 - I2C Master Delayed Sensing enabled for Slave 0.[0m
-[0;32mI (6647) icm20948_sensors: Step 16 - Magnetometer set to Continuous Measurement Mode 1 (~10 Hz).[0m
-[0;32mI (6857) icm20948_sensors: Step 17 - Magnetometer CNTL2 register readback OK: 0x02[0m
-[0;32mI (6857) icm20948_sensors: ICM20948 Sensor initialization is complete.[0m
-
-[0;32mI (6857) CALIB: Starting 2D magnetometer calibration.[0m
-Rotate the device slowly on a flat surface for 15.0 seconds...
-[0;32mI (8867) icm20948_sensors: Mag [x: -22.20 uT, y: -2.70 uT, z: 33.00 uT][0m
-[0;32mI (8967) icm20948_sensors: Mag [x: -22.20 uT, y: -2.70 uT, z: 33.00 uT][0m
-[0;32mI (9067) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 32.55 uT][0m
-[0;32mI (9167) icm20948_sensors: Mag [x: -22.80 uT, y: -2.55 uT, z: 34.20 uT][0m
-[0;32mI (9267) icm20948_sensors: Mag [x: -21.45 uT, y: -2.25 uT, z: 31.95 uT][0m
-[0;32mI (9367) icm20948_sensors: Mag [x: -20.55 uT, y: -2.55 uT, z: 33.75 uT][0m
-[0;32mI (9467) icm20948_sensors: Mag [x: -21.60 uT, y: -2.10 uT, z: 32.10 uT][0m
-[0;32mI (9567) icm20948_sensors: Mag [x: -22.05 uT, y: -3.30 uT, z: 32.10 uT][0m
-[0;32mI (9667) icm20948_sensors: Mag [x: -22.50 uT, y: -2.25 uT, z: 33.60 uT][0m
-[0;32mI (9767) icm20948_sensors: Mag [x: -21.90 uT, y: -3.45 uT, z: 31.95 uT][0m
-[0;32mI (9867) icm20948_sensors: Mag [x: -22.05 uT, y: -2.85 uT, z: 32.10 uT][0m
-[0;32mI (9967) icm20948_sensors: Mag [x: -22.05 uT, y: -2.85 uT, z: 32.10 uT][0m
-[0;32mI (10067) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 32.25 uT][0m
-[0;32mI (10167) icm20948_sensors: Mag [x: -21.00 uT, y: -2.85 uT, z: 33.45 uT][0m
-[0;32mI (10267) icm20948_sensors: Mag [x: -21.45 uT, y: -3.00 uT, z: 31.95 uT][0m
-[0;32mI (10367) icm20948_sensors: Mag [x: -22.50 uT, y: -3.45 uT, z: 31.95 uT][0m
-[0;32mI (10467) icm20948_sensors: Mag [x: -22.35 uT, y: -3.60 uT, z: 34.50 uT][0m
-[0;32mI (10567) icm20948_sensors: Mag [x: -22.05 uT, y: -2.85 uT, z: 33.45 uT][0m
-[0;32mI (10667) icm20948_sensors: Mag [x: -21.60 uT, y: -1.35 uT, z: 32.40 uT][0m
-[0;32mI (10767) icm20948_sensors: Mag [x: -20.70 uT, y: -2.25 uT, z: 32.55 uT][0m
-[0;32mI (10867) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 32.25 uT][0m
-[0;32mI (10967) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 32.25 uT][0m
-[0;32mI (11067) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 34.35 uT][0m
-[0;32mI (11167) icm20948_sensors: Mag [x: -20.70 uT, y: -3.45 uT, z: 33.90 uT][0m
-[0;32mI (11267) icm20948_sensors: Mag [x: -20.40 uT, y: -3.75 uT, z: 33.00 uT][0m
-[0;32mI (11367) icm20948_sensors: Mag [x: -21.90 uT, y: -3.45 uT, z: 33.30 uT][0m
-[0;32mI (11467) icm20948_sensors: Mag [x: -21.90 uT, y: -3.45 uT, z: 33.30 uT][0m
-[0;32mI (11567) icm20948_sensors: Mag [x: -20.55 uT, y: -5.10 uT, z: 33.45 uT][0m
-[0;32mI (11667) icm20948_sensors: Mag [x: -23.10 uT, y: -3.60 uT, z: 32.10 uT][0m
-[0;32mI (11767) icm20948_sensors: Mag [x: -22.05 uT, y: -4.35 uT, z: 33.15 uT][0m
-[0;32mI (11867) icm20948_sensors: Mag [x: -21.60 uT, y: -2.55 uT, z: 33.45 uT][0m
-[0;32mI (11967) icm20948_sensors: Mag [x: -21.60 uT, y: -2.55 uT, z: 33.45 uT][0m
-[0;32mI (12067) icm20948_sensors: Mag [x: -22.05 uT, y: -3.30 uT, z: 32.10 uT][0m
-[0;32mI (12167) icm20948_sensors: Mag [x: -22.35 uT, y: -2.10 uT, z: 32.10 uT][0m
-[0;32mI (12267) icm20948_sensors: Mag [x: -21.45 uT, y: -1.95 uT, z: 32.55 uT][0m
-[0;32mI (12367) icm20948_sensors: Mag [x: -21.45 uT, y: -2.25 uT, z: 31.20 uT][0m
-[0;32mI (12467) icm20948_sensors: Mag [x: -21.00 uT, y: -1.80 uT, z: 31.35 uT][0m
-[0;32mI (12467) CALIB: Collected 37 of 150 samples (24.7%) in 3.6 seconds...[0m
-[0;32mI (12567) icm20948_sensors: Mag [x: -21.30 uT, y: -1.35 uT, z: 31.05 uT][0m
-[0;32mI (12667) icm20948_sensors: Mag [x: -20.70 uT, y: -0.90 uT, z: 30.90 uT][0m
-[0;32mI (12767) icm20948_sensors: Mag [x: -22.20 uT, y: -2.70 uT, z: 33.00 uT][0m
-[0;32mI (12867) icm20948_sensors: Mag [x: -22.20 uT, y: -3.45 uT, z: 33.00 uT][0m
-[0;32mI (12967) icm20948_sensors: Mag [x: -22.20 uT, y: -3.45 uT, z: 33.00 uT][0m
-[0;32mI (13067) icm20948_sensors: Mag [x: -22.35 uT, y: -3.30 uT, z: 33.75 uT][0m
-[0;32mI (13167) icm20948_sensors: Mag [x: -21.45 uT, y: -4.95 uT, z: 33.60 uT][0m
-[0;32mI (13267) icm20948_sensors: Mag [x: -22.05 uT, y: -3.90 uT, z: 30.60 uT][0m
-[0;32mI (13367) icm20948_sensors: Mag [x: -22.35 uT, y: -2.85 uT, z: 33.45 uT][0m
-[0;32mI (13467) icm20948_sensors: Mag [x: -20.70 uT, y: -0.90 uT, z: 32.55 uT][0m
-[0;32mI (13567) icm20948_sensors: Mag [x: -21.00 uT, y: -1.35 uT, z: 31.05 uT][0m
-[0;32mI (13667) icm20948_sensors: Mag [x: -21.15 uT, y: 0.45 uT, z: 31.20 uT][0m
-[0;32mI (13767) icm20948_sensors: Mag [x: -23.25 uT, y: -0.15 uT, z: 32.25 uT][0m
-[0;32mI (13867) icm20948_sensors: Mag [x: -23.25 uT, y: -0.15 uT, z: 32.25 uT][0m
-[0;32mI (13967) icm20948_sensors: Mag [x: -20.70 uT, y: -1.20 uT, z: 31.50 uT][0m
-[0;32mI (14067) icm20948_sensors: Mag [x: -21.90 uT, y: -1.20 uT, z: 33.60 uT][0m
-[0;32mI (14167) icm20948_sensors: Mag [x: -21.90 uT, y: -3.45 uT, z: 31.50 uT][0m
-[0;32mI (14267) icm20948_sensors: Mag [x: -22.20 uT, y: -3.45 uT, z: 32.25 uT][0m
-[0;32mI (14367) icm20948_sensors: Mag [x: -23.10 uT, y: -4.35 uT, z: 32.10 uT][0m
-[0;32mI (14467) icm20948_sensors: Mag [x: -21.30 uT, y: -2.55 uT, z: 33.45 uT][0m
-[0;32mI (14567) icm20948_sensors: Mag [x: -21.60 uT, y: -4.65 uT, z: 32.10 uT][0m
-[0;32mI (14667) icm20948_sensors: Mag [x: -21.90 uT, y: -2.70 uT, z: 33.00 uT][0m
-[0;32mI (14767) icm20948_sensors: Mag [x: -21.00 uT, y: -2.10 uT, z: 31.65 uT][0m
-[0;32mI (14867) icm20948_sensors: Mag [x: -21.00 uT, y: -2.10 uT, z: 31.65 uT][0m
-[0;32mI (14967) icm20948_sensors: Mag [x: -21.60 uT, y: -2.10 uT, z: 33.45 uT][0m
-[0;32mI (15067) icm20948_sensors: Mag [x: -21.00 uT, y: -1.35 uT, z: 31.35 uT][0m
-[0;32mI (15167) icm20948_sensors: Mag [x: -21.15 uT, y: -1.95 uT, z: 30.90 uT][0m
-[0;32mI (15267) icm20948_sensors: Mag [x: -21.90 uT, y: -0.45 uT, z: 30.45 uT][0m
-[0;32mI (15367) icm20948_sensors: Mag [x: -21.00 uT, y: -0.30 uT, z: 31.65 uT][0m
-[0;32mI (15467) icm20948_sensors: Mag [x: -22.35 uT, y: -1.35 uT, z: 32.40 uT][0m
-[0;32mI (15567) icm20948_sensors: Mag [x: -22.20 uT, y: -1.65 uT, z: 31.20 uT][0m
-[0;32mI (15667) icm20948_sensors: Mag [x: -23.40 uT, y: -3.60 uT, z: 34.20 uT][0m
-[0;32mI (15767) icm20948_sensors: Mag [x: -22.20 uT, y: -4.20 uT, z: 33.30 uT][0m
-[0;32mI (15867) icm20948_sensors: Mag [x: -22.20 uT, y: -4.20 uT, z: 33.30 uT][0m
-[0;32mI (15967) icm20948_sensors: Mag [x: -21.90 uT, y: -4.50 uT, z: 33.90 uT][0m
-[0;32mI (16067) icm20948_sensors: Mag [x: -22.80 uT, y: -4.65 uT, z: 33.15 uT][0m
-[0;32mI (16167) icm20948_sensors: Mag [x: -20.70 uT, y: -1.95 uT, z: 32.55 uT][0m
-[0;32mI (16167) CALIB: Collected 74 of 150 samples (49.3%) in 7.3 seconds...[0m
-[0;32mI (16267) icm20948_sensors: Mag [x: -20.40 uT, y: -2.70 uT, z: 33.60 uT][0m
-[0;32mI (16367) icm20948_sensors: Mag [x: -21.15 uT, y: -1.65 uT, z: 31.95 uT][0m
-[0;32mI (16467) icm20948_sensors: Mag [x: -22.35 uT, y: 0.00 uT, z: 33.45 uT][0m
-[0;32mI (16567) icm20948_sensors: Mag [x: -21.30 uT, y: -2.10 uT, z: 32.40 uT][0m
-[0;32mI (16667) icm20948_sensors: Mag [x: -22.80 uT, y: -0.30 uT, z: 33.15 uT][0m
-[0;32mI (16767) icm20948_sensors: Mag [x: -21.60 uT, y: -3.30 uT, z: 32.40 uT][0m
-[0;32mI (16867) icm20948_sensors: Mag [x: -21.60 uT, y: -3.30 uT, z: 32.40 uT][0m
-[0;32mI (16967) icm20948_sensors: Mag [x: -22.80 uT, y: -5.40 uT, z: 32.70 uT][0m
-[0;32mI (17067) icm20948_sensors: Mag [x: -21.90 uT, y: -3.00 uT, z: 32.25 uT][0m
-[0;32mI (17167) icm20948_sensors: Mag [x: -21.90 uT, y: -2.25 uT, z: 33.60 uT][0m
-[0;32mI (17267) icm20948_sensors: Mag [x: -21.30 uT, y: -2.10 uT, z: 33.15 uT][0m
-[0;32mI (17367) icm20948_sensors: Mag [x: -21.60 uT, y: -2.10 uT, z: 31.35 uT][0m
-[0;32mI (17467) icm20948_sensors: Mag [x: -21.00 uT, y: 0.00 uT, z: 31.35 uT][0m
-[0;32mI (17567) icm20948_sensors: Mag [x: -20.70 uT, y: -1.65 uT, z: 32.25 uT][0m
-[0;32mI (17667) icm20948_sensors: Mag [x: -21.60 uT, y: -1.05 uT, z: 33.45 uT][0m
-[0;32mI (17767) icm20948_sensors: Mag [x: -23.25 uT, y: -1.20 uT, z: 31.95 uT][0m
-[0;32mI (17867) icm20948_sensors: Mag [x: -23.25 uT, y: -1.20 uT, z: 31.95 uT][0m
-[0;32mI (17967) icm20948_sensors: Mag [x: -22.05 uT, y: -3.30 uT, z: 33.45 uT][0m
-[0;32mI (18067) icm20948_sensors: Mag [x: -21.00 uT, y: -3.30 uT, z: 33.15 uT][0m
-[0;32mI (18167) icm20948_sensors: Mag [x: -21.90 uT, y: -3.00 uT, z: 33.60 uT][0m
-[0;32mI (18267) icm20948_sensors: Mag [x: -21.60 uT, y: -1.35 uT, z: 31.65 uT][0m
-[0;32mI (18367) icm20948_sensors: Mag [x: -22.95 uT, y: -3.45 uT, z: 31.95 uT][0m
-[0;32mI (18467) icm20948_sensors: Mag [x: -21.15 uT, y: -2.70 uT, z: 31.20 uT][0m
-[0;32mI (18567) icm20948_sensors: Mag [x: -21.60 uT, y: -2.10 uT, z: 32.10 uT][0m
-[0;32mI (18667) icm20948_sensors: Mag [x: -21.60 uT, y: -1.05 uT, z: 31.35 uT][0m
-[0;32mI (18767) icm20948_sensors: Mag [x: -21.60 uT, y: -1.05 uT, z: 31.35 uT][0m
-[0;32mI (18867) icm20948_sensors: Mag [x: -22.35 uT, y: -3.30 uT, z: 32.70 uT][0m
-[0;32mI (18967) icm20948_sensors: Mag [x: -21.45 uT, y: -3.75 uT, z: 33.60 uT][0m
-[0;32mI (19067) icm20948_sensors: Mag [x: -22.35 uT, y: -3.30 uT, z: 32.70 uT][0m
-[0;32mI (19167) icm20948_sensors: Mag [x: -21.90 uT, y: -4.20 uT, z: 32.55 uT][0m
-[0;32mI (19267) icm20948_sensors: Mag [x: -21.15 uT, y: -3.75 uT, z: 33.30 uT][0m
-[0;32mI (19367) icm20948_sensors: Mag [x: -22.35 uT, y: -3.30 uT, z: 35.25 uT][0m
-[0;32mI (19467) icm20948_sensors: Mag [x: -21.90 uT, y: -2.25 uT, z: 31.50 uT][0m
-[0;32mI (19567) icm20948_sensors: Mag [x: -22.95 uT, y: -1.65 uT, z: 33.30 uT][0m
-[0;32mI (19667) icm20948_sensors: Mag [x: -21.15 uT, y: -1.95 uT, z: 33.60 uT][0m
-[0;32mI (19767) icm20948_sensors: Mag [x: -21.15 uT, y: -1.95 uT, z: 33.60 uT][0m
-[0;32mI (19867) icm20948_sensors: Mag [x: -21.45 uT, y: -2.25 uT, z: 32.25 uT][0m
-[0;32mI (19867) CALIB: Collected 111 of 150 samples (74.0%) in 11.0 seconds...[0m
-[0;32mI (19967) icm20948_sensors: Mag [x: -21.15 uT, y: -1.20 uT, z: 31.95 uT][0m
-[0;32mI (20067) icm20948_sensors: Mag [x: -21.00 uT, y: -1.35 uT, z: 32.40 uT][0m
-[0;32mI (20167) icm20948_sensors: Mag [x: -21.15 uT, y: -3.45 uT, z: 33.00 uT][0m
-[0;32mI (20267) icm20948_sensors: Mag [x: -21.45 uT, y: -3.45 uT, z: 33.30 uT][0m
-[0;32mI (20367) icm20948_sensors: Mag [x: -23.10 uT, y: -1.80 uT, z: 31.65 uT][0m
-[0;32mI (20467) icm20948_sensors: Mag [x: -21.30 uT, y: -3.90 uT, z: 33.75 uT][0m
-[0;32mI (20567) icm20948_sensors: Mag [x: -23.10 uT, y: -2.55 uT, z: 33.15 uT][0m
-[0;32mI (20667) icm20948_sensors: Mag [x: -21.90 uT, y: -4.20 uT, z: 32.55 uT][0m
-[0;32mI (20767) icm20948_sensors: Mag [x: -21.90 uT, y: -4.20 uT, z: 32.55 uT][0m
-[0;32mI (20867) icm20948_sensors: Mag [x: -20.25 uT, y: -2.85 uT, z: 33.15 uT][0m
-[0;32mI (20967) icm20948_sensors: Mag [x: -20.70 uT, y: -2.25 uT, z: 33.00 uT][0m
-[0;32mI (21067) icm20948_sensors: Mag [x: -21.60 uT, y: -2.10 uT, z: 31.05 uT][0m
-[0;32mI (21167) icm20948_sensors: Mag [x: -22.05 uT, y: -2.85 uT, z: 31.65 uT][0m
-[0;32mI (21267) icm20948_sensors: Mag [x: -22.80 uT, y: -2.55 uT, z: 32.40 uT][0m
-[0;32mI (21367) icm20948_sensors: Mag [x: -22.50 uT, y: -3.45 uT, z: 31.50 uT][0m
-[0;32mI (21467) icm20948_sensors: Mag [x: -21.00 uT, y: -2.55 uT, z: 33.15 uT][0m
-[0;32mI (21567) icm20948_sensors: Mag [x: -22.35 uT, y: -2.55 uT, z: 32.70 uT][0m
-[0;32mI (21667) icm20948_sensors: Mag [x: -21.00 uT, y: -2.10 uT, z: 31.35 uT][0m
-[0;32mI (21767) icm20948_sensors: Mag [x: -21.00 uT, y: -2.10 uT, z: 31.35 uT][0m
-[0;32mI (21867) icm20948_sensors: Mag [x: -21.60 uT, y: -2.55 uT, z: 32.10 uT][0m
-[0;32mI (21967) icm20948_sensors: Mag [x: -22.50 uT, y: -2.25 uT, z: 31.50 uT][0m
-[0;32mI (22067) icm20948_sensors: Mag [x: -22.95 uT, y: -3.00 uT, z: 31.50 uT][0m
-[0;32mI (22167) icm20948_sensors: Mag [x: -21.00 uT, y: -3.30 uT, z: 32.10 uT][0m
-[0;32mI (22267) icm20948_sensors: Mag [x: -20.70 uT, y: -1.65 uT, z: 32.55 uT][0m
-[0;32mI (22367) icm20948_sensors: Mag [x: -21.15 uT, y: -3.45 uT, z: 33.90 uT][0m
-[0;32mI (22467) icm20948_sensors: Mag [x: -22.35 uT, y: -2.55 uT, z: 31.65 uT][0m
-[0;32mI (22567) icm20948_sensors: Mag [x: -21.45 uT, y: -2.25 uT, z: 32.25 uT][0m
-[0;32mI (22667) icm20948_sensors: Mag [x: -21.90 uT, y: -3.00 uT, z: 32.55 uT][0m
-[0;32mI (22767) icm20948_sensors: Mag [x: -21.90 uT, y: -3.00 uT, z: 32.55 uT][0m
-[0;32mI (22867) icm20948_sensors: Mag [x: -20.55 uT, y: -3.30 uT, z: 31.65 uT][0m
-[0;32mI (22967) icm20948_sensors: Mag [x: -21.45 uT, y: -3.00 uT, z: 33.60 uT][0m
-[0;32mI (23067) icm20948_sensors: Mag [x: -21.45 uT, y: -2.70 uT, z: 31.95 uT][0m
-[0;32mI (23167) icm20948_sensors: Mag [x: -21.90 uT, y: -2.70 uT, z: 31.95 uT][0m
-[0;32mI (23267) icm20948_sensors: Mag [x: -21.30 uT, y: -3.30 uT, z: 33.15 uT][0m
-[0;32mI (23367) icm20948_sensors: Mag [x: -20.55 uT, y: -2.55 uT, z: 33.15 uT][0m
-[0;32mI (23467) icm20948_sensors: Mag [x: -22.20 uT, y: -1.65 uT, z: 32.25 uT][0m
-[0;32mI (23567) icm20948_sensors: Mag [x: -20.55 uT, y: -3.30 uT, z: 33.75 uT][0m
-[0;32mI (23567) CALIB: Collected 148 of 150 samples (98.7%) in 14.7 seconds...[0m
-[0;32mI (23667) icm20948_sensors: Mag [x: -22.20 uT, y: -1.95 uT, z: 32.55 uT][0m
-[0;32mI (23767) icm20948_sensors: Mag [x: -22.20 uT, y: -1.95 uT, z: 32.55 uT][0m
-[0;32mI (23767) CALIB: Collected 150 of 150 samples (100.0%) in 14.9 seconds...[0m
-[0;32mI (23867) CALIB: Magnetometer 2D calibration data collection complete.[0m
-[0;32mI (25867) CALIB_DEBUG: [Sample 0] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25867) CALIB_DEBUG: [Sample 0] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25877) CALIB_DEBUG: [Sample 1] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25877) CALIB_DEBUG: [Sample 1] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25887) CALIB_DEBUG: [Sample 2] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25897) CALIB_DEBUG: [Sample 2] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25907) CALIB_DEBUG: [Sample 3] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25917) CALIB_DEBUG: [Sample 3] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25927) CALIB_DEBUG: [Sample 4] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25937) CALIB_DEBUG: [Sample 4] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25947) CALIB_DEBUG: [Sample 5] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25947) CALIB_DEBUG: [Sample 5] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25967) CALIB_DEBUG: [Sample 6] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (25967) CALIB_DEBUG: [Sample 6] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25977) CALIB_DEBUG: [Sample 7] Raw Mag: mx=-0.0000, my=-0.0000, mz=0.0000[0m
-[0;32mI (25987) CALIB_DEBUG: [Sample 7] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (25997) CALIB_DEBUG: [Sample 8] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26007) CALIB_DEBUG: [Sample 8] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26017) CALIB_DEBUG: [Sample 9] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26027) CALIB_DEBUG: [Sample 9] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26037) CALIB_DEBUG: [Sample 10] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26037) CALIB_DEBUG: [Sample 10] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26057) CALIB_DEBUG: [Sample 11] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26057) CALIB_DEBUG: [Sample 11] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26067) CALIB_DEBUG: [Sample 12] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26077) CALIB_DEBUG: [Sample 12] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26087) CALIB_DEBUG: [Sample 13] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26097) CALIB_DEBUG: [Sample 13] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26107) CALIB_DEBUG: [Sample 14] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26117) CALIB_DEBUG: [Sample 14] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26127) CALIB_DEBUG: [Sample 15] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26137) CALIB_DEBUG: [Sample 15] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26147) CALIB_DEBUG: [Sample 16] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26147) CALIB_DEBUG: [Sample 16] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26167) CALIB_DEBUG: [Sample 17] Raw Mag: mx=0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26167) CALIB_DEBUG: [Sample 17] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26177) CALIB_DEBUG: [Sample 18] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26187) CALIB_DEBUG: [Sample 18] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26197) CALIB_DEBUG: [Sample 19] Raw Mag: mx=-0.0000, my=-0.0000, mz=0.0000[0m
-[0;32mI (26207) CALIB_DEBUG: [Sample 19] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26217) CALIB_DEBUG: [Sample 20] Raw Mag: mx=0.0000, my=0.0000, mz=-0.0000[0m
-[0;32mI (26227) CALIB_DEBUG: [Sample 20] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26237) CALIB_DEBUG: [Sample 21] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26237) CALIB_DEBUG: [Sample 21] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26257) CALIB_DEBUG: [Sample 22] Raw Mag: mx=-0.0000, my=0.0000, mz=1.9668[0m
-[0;32mI (26257) CALIB_DEBUG: [Sample 22] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26267) CALIB_DEBUG: [Sample 23] Raw Mag: mx=0.0000, my=0.0000, mz=-0.0000[0m
-[0;32mI (26277) CALIB_DEBUG: [Sample 23] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26287) CALIB_DEBUG: [Sample 24] Raw Mag: mx=-0.0000, my=-0.0000, mz=-0.0000[0m
-[0;32mI (26297) CALIB_DEBUG: [Sample 24] Current Sums: sum_mx=-0.0000, sum_my=-0.0000, sum_mx2=0.0000, sum_my2=0.0000, sum_mxmy=0.0000[0m
-[0;32mI (26307) CALIB_DEBUG: [Sample 25] Raw Mag: mx=0.0000, my=1.9668, mz=0.0000[0m
-[0;32mI (26317) CALIB_DEBUG: [Sample 25] Current Sums: sum_mx=-0.0000, sum_my=1.9668, sum_mx2=0.0000, sum_my2=3.8682, sum_mxmy=0.0000[0m
-[0;32mI (26327) CALIB_DEBUG: [Sample 26] Raw Mag: mx=0.0000, my=1.9604, mz=0.0000[0m
-[0;32mI (26327) CALIB_DEBUG: [Sample 26] Current Sums: sum_mx=-0.0000, sum_my=3.9272, sum_mx2=0.0000, sum_my2=7.7113, sum_mxmy=0.0000[0m
-[0;32mI (26347) CALIB_DEBUG: [Sample 27] Raw Mag: mx=0.7506, my=0.0000, mz=0.0000[0m
-[0;32mI (26347) CALIB_DEBUG: [Sample 27] Current Sums: sum_mx=0.7506, sum_my=3.9272, sum_mx2=0.5634, sum_my2=7.7113, sum_mxmy=0.0000[0m
-[0;32mI (26357) CALIB_DEBUG: [Sample 28] Raw Mag: mx=1.9668, my=0.0000, mz=0.0000[0m
-[0;32mI (26367) CALIB_DEBUG: [Sample 28] Current Sums: sum_mx=2.7174, sum_my=3.9272, sum_mx2=4.4317, sum_my2=7.7113, sum_mxmy=0.0000[0m
-[0;32mI (26377) CALIB_DEBUG: [Sample 29] Raw Mag: mx=1.9604, my=0.0000, mz=1.9669[0m
-[0;32mI (26387) CALIB_DEBUG: [Sample 29] Current Sums: sum_mx=4.6778, sum_my=3.9272, sum_mx2=8.2747, sum_my2=7.7113, sum_mxmy=0.0000[0m
-[0;32mI (26397) CALIB_DEBUG: [Sample 30] Raw Mag: mx=-170141183460469231731687303715884105728.0000, my=-0.0000, mz=1.9668[0m
-[0;32mI (26407) CALIB_DEBUG: [Sample 30] Current Sums: sum_mx=-170141183460469231731687303715884105728.0000, sum_my=3.9272, sum_mx2=inf, sum_my2=7.7113, sum_mxmy=0.1279[0m
-[0;32mI (26417) CALIB_DEBUG: [Sample 31] Raw Mag: mx=0.0000, my=-nan, mz=0.0000[0m
-[1;31mE (26427) CALIB_2D: Input magnetic sample 31 contains NaN or Inf. Aborting calibration.[0m
-[1;31mE (26437) CALIB_2D: Magnetometer 2D calibration failed.[0m
-ESP_ERROR_CHECK failed: esp_err_t 0xffffffff (ESP_FAIL) at 0x400dce1d
-0x400dce1d: app_main at /home/ismet/ESP_Projects/syncspark/sparknode_icm20948/main/sparknode_icm20948.c:211 (discriminator 1)
-file: "./main/sparknode_icm20948.c" line 211
-func: app_main
-expression: icm20948_calibrate_mag_2d(icm20948_dev_handle, mag_samples, NUM_CALIBRATION_SAMPLES, &mag_bias)
-
-abort() was called at PC 0x4008c90f on core 0
-0x4008c90f: _esp_error_check_failed at /home/ismet/esp/esp-idf/components/esp_system/esp_err.c:49
-
-
-Backtrace: 0x40081e84:0x3ffbbcb0 0x4008c919:0x3ffbbcd0 0x40094751:0x3ffbbcf0 0x4008c90f:0x3ffbbd60 0x400dce1d:0x3ffbbd90 0x4017a21c:0x3ffbc5a0 0x4008d455:0x3ffbc5d0
-0x40081e84: panic_abort at /home/ismet/esp/esp-idf/components/esp_system/panic.c:468
-0x4008c919: esp_system_abort at /home/ismet/esp/esp-idf/components/esp_system/port/esp_system_chip.c:92
-0x40094751: abort at /home/ismet/esp/esp-idf/components/newlib/src/abort.c:38
-0x4008c90f: _esp_error_check_failed at /home/ismet/esp/esp-idf/components/esp_system/esp_err.c:49
-0x400dce1d: app_main at /home/ismet/ESP_Projects/syncspark/sparknode_icm20948/main/sparknode_icm20948.c:211 (discriminator 1)
-0x4017a21c: main_task at /home/ismet/esp/esp-idf/components/freertos/app_startup.c:208
-0x4008d455: vPortTaskWrapper at /home/ismet/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:139
-
-
-
-
-ELF file SHA256: 225989f0f
-
-Rebooting...
-ets Jul 29 2019 12:21:46
-
-rst:0xc (SW_CPU_RESET),boot:0x1b (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:1
-load:0x3fff0030,len:6368
-load:0x40078000,len:15848
-load:0x40080400,len:3860
-0x40080400: _invalid_pc_placeholder at /home/ismet/esp/esp-idf/components/xtensa/xtensa_vectors.S:2235
-entry 0x40080638
-[0;32mI (27) boot: ESP-IDF v5.5-dev-2182-ga6c3a9cbbb 2nd stage bootloader[0m
-[0;32mI (27) boot: compile time Aug 13 2025 21:02:50[0m
-[0;32mI (27) boot: Multicore bootloader[0m
-[0;32mI (30) boot: chip revision: v3.0[0m
-[0;32mI (33) boot.esp32: SPI Speed      : 80MHz[0m
-[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
-[0;32mI (40) boot.esp32: SPI Flash Size : 4MB[0m
-[0;32mI (44) boot: Enabling RNG early entropy source...[0m
-[0;32mI (48) boot: Partition Table:[0m
-[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 000f8000[0m
-[0;32mI (77) boot:  3 ota_data         OTA data         01 00 00108000 00002000[0m
-[0;32mI (83) boot:  4 ota_0            OTA app          00 10 00110000 002f0000[0m
-[0;32mI (90) boot: End of partition table[0m
-[0;32mI (93) esp_image: segment 0: paddr=00110020 vaddr=3f400020 size=26b00h (158464) map[0m
-[0;32mI (145) esp_image: segment 1: paddr=00136b28 vaddr=3ff80000 size=0001ch (    28) load[0m
-[0;32mI (146) esp_image: segment 2: paddr=00136b4c vaddr=3ffb0000 size=03fc0h ( 16320) load[0m
-[0;32mI (154) esp_image: segment 3: paddr=0013ab14 vaddr=40080000 size=05504h ( 21764) load[0m
-[0;32mI (164) esp_image: segment 4: paddr=00140020 vaddr=400d0020 size=ac1f8h (705016) map[0m
-[0;32mI (363) esp_image: segment 5: paddr=001ec220 vaddr=40085504 size=165f4h ( 91636) load[0m
-[0;32mI (407) boot: Loaded app from partition at offset 0x110000[0m
-[0;32mI (407) boot: Disabling RNG early entropy source...[0m
-[0;32mI (417) quad_psram: This chip is ESP32-D0WD[0m
-[0;32mI (418) esp_psram: Found 2MB PSRAM device[0m
-[0;32mI (418) esp_psram: Speed: 80MHz[0m
-[0;32mI (418) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
-[0;32mI (425) cpu_start: Multicore app[0m
-[0;32mI (694) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (702) cpu_start: Pro cpu start user code[0m
-[0;32mI (702) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (702) app_init: Application information:[0m
-[0;32mI (703) app_init: Project name:     sparknode_icm20948[0m
-[0;32mI (707) app_init: App version:      ota_update_scheme_1-38-ge8dd2f9[0m
-[0;32mI (713) app_init: Compile time:     Aug 13 2025 21:06:46[0m
-[0;32mI (718) app_init: ELF file SHA256:  225989f0f...[0m
-[0;32mI (723) app_init: ESP-IDF:          v5.5-dev-2182-ga6c3a9cbbb[0m
-[0;32mI (728) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (732) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (736) efuse_init: Chip rev:         v3.0[0m
-[0;32mI (740) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (746) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (751) heap_init: At 3FFB90A8 len 00026F58 (155 KiB): DRAM[0m
-[0;32mI (756) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (762) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (767) heap_init: At 4009BAF8 len 00004508 (17 KiB): IRAM[0m
-[0;32mI (773) esp_psram: Adding pool of 2048K of PSRAM memory to heap allocator[0m
-[0;32mI (780) spi_flash: detected chip: generic[0m
-[0;32mI (783) spi_flash: flash io: dio[0m
-[0;32mI (787) main_task: Started on CPU0[0m
-[0;32mI (797) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (797) main_task: Calling app_main()[0m
-[0;32mI (797) led_control: Initializing GPIOs for LEDs[0m
-[0;32mI (797) gpio: GPIO[4]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (807) gpio: GPIO[33]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (817) led_control: Testing LEDS[0m
-ets Jul 29 2019 12:21:46
-
-rst:0x1 (POWERON_RESET),boot:0x1b (SPI_FAST_FLASH_BOOT)
-configsip: 0, SPIWP:0xee
-clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
-mode:DIO, clock div:1
-load:0x3fff0030,len:6368
-load:0x40078000,len:15848
-load:0x40080400,len:3860
-0x40080400: _invalid_pc_placeholder at /home/ismet/esp/esp-idf/components/xtensa/xtensa_vectors.S:2235
-entry 0x40080638
-[0;32mI (27) boot: ESP-IDF v5.5-dev-2182-ga6c3a9cbbb 2nd stage bootloader[0m
-[0;32mI (27) boot: compile time Aug 13 2025 21:02:50[0m
-[0;32mI (28) boot: Multicore bootloader[0m
-[0;32mI (30) boot: chip revision: v3.0[0m
-[0;32mI (33) boot.esp32: SPI Speed      : 80MHz[0m
-[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
-[0;32mI (40) boot.esp32: SPI Flash Size : 4MB[0m
-[0;32mI (44) boot: Enabling RNG early entropy source...[0m
-[0;32mI (49) boot: Partition Table:[0m
-[0;32mI (51) boot: ## Label            Usage          Type ST Offset   Length[0m
-[0;32mI (57) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
-[0;32mI (64) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
-[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 000f8000[0m
-[0;32mI (77) boot:  3 ota_data         OTA data         01 00 00108000 00002000[0m
-[0;32mI (84) boot:  4 ota_0            OTA app          00 10 00110000 002f0000[0m
-[0;32mI (90) boot: End of partition table[0m
-[0;32mI (93) esp_image: segment 0: paddr=00110020 vaddr=3f400020 size=26b00h (158464) map[0m
-[0;32mI (146) esp_image: segment 1: paddr=00136b28 vaddr=3ff80000 size=0001ch (    28) load[0m
-[0;32mI (146) esp_image: segment 2: paddr=00136b4c vaddr=3ffb0000 size=03fc0h ( 16320) load[0m
-[0;32mI (154) esp_image: segment 3: paddr=0013ab14 vaddr=40080000 size=05504h ( 21764) load[0m
-[0;32mI (164) esp_image: segment 4: paddr=00140020 vaddr=400d0020 size=ac1f8h (705016) map[0m
-[0;32mI (363) esp_image: segment 5: paddr=001ec220 vaddr=40085504 size=165f4h ( 91636) load[0m
-[0;32mI (407) boot: Loaded app from partition at offset 0x110000[0m
-[0;32mI (407) boot: Disabling RNG early entropy source...[0m
-[0;32mI (417) quad_psram: This chip is ESP32-D0WD[0m
-[0;32mI (418) esp_psram: Found 2MB PSRAM device[0m
-[0;32mI (418) esp_psram: Speed: 80MHz[0m
-[0;32mI (418) esp_psram: PSRAM initialized, cache is in low/high (2-core) mode.[0m
-[0;32mI (425) cpu_start: Multicore app[0m
-[0;32mI (695) esp_psram: SPI SRAM memory test OK[0m
-[0;32mI (702) cpu_start: Pro cpu start user code[0m
-[0;32mI (702) cpu_start: cpu freq: 240000000 Hz[0m
-[0;32mI (703) app_init: Application information:[0m
-[0;32mI (703) app_init: Project name:     sparknode_icm20948[0m
-[0;32mI (707) app_init: App version:      ota_update_scheme_1-38-ge8dd2f9[0m
-[0;32mI (713) app_init: Compile time:     Aug 13 2025 21:06:46[0m
-[0;32mI (718) app_init: ELF file SHA256:  225989f0f...[0m
-[0;32mI (723) app_init: ESP-IDF:          v5.5-dev-2182-ga6c3a9cbbb[0m
-[0;32mI (728) efuse_init: Min chip rev:     v0.0[0m
-[0;32mI (732) efuse_init: Max chip rev:     v3.99 [0m
-[0;32mI (736) efuse_init: Chip rev:         v3.0[0m
-[0;32mI (740) heap_init: Initializing. RAM available for dynamic allocation:[0m
-[0;32mI (746) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
-[0;32mI (751) heap_init: At 3FFB90A8 len 00026F58 (155 KiB): DRAM[0m
-[0;32mI (757) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
-[0;32mI (762) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
-[0;32mI (767) heap_init: At 4009BAF8 len 00004508 (17 KiB): IRAM[0m
-[0;32mI (773) esp_psram: Adding pool of 2048K of PSRAM memory to heap allocator[0m
-[0;32mI (780) spi_flash: detected chip: generic[0m
-[0;32mI (783) spi_flash: flash io: dio[0m
-[0;32mI (787) main_task: Started on CPU0[0m
-[0;32mI (797) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
-[0;32mI (797) main_task: Calling app_main()[0m
-[0;32mI (797) led_control: Initializing GPIOs for LEDs[0m
-[0;32mI (797) gpio: GPIO[4]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (807) gpio: GPIO[33]| InputEn: 0| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
-[0;32mI (817) led_control: Testing LEDS[0m
-[0;32mI (2087) wifi_net: Initializing Wi-Fi in station mode...[0m
-[0;32mI (2107) wifi:wifi driver task: 3ffc232c, prio:23, stack:6656, core=0[0m
-[0;32mI (2107) wifi:wifi firmware version: fe7fdd4[0m
-[0;32mI (2107) wifi:wifi certification version: v7.0[0m
-[0;32mI (2117) wifi:config NVS flash: enabled[0m
-[0;32mI (2117) wifi:config nano formatting: disabled[0m
-[0;32mI (2117) wifi:Init data frame dynamic rx buffer num: 32[0m
-[0;32mI (2117) wifi:Init static rx mgmt buffer num: 5[0m
-[0;32mI (2127) wifi:Init management short buffer num: 32[0m
-[0;32mI (2127) wifi:Init dynamic tx buffer num: 32[0m
-[0;32mI (2137) wifi:Init static rx buffer size: 1600[0m
-[0;32mI (2137) wifi:Init static rx buffer num: 10[0m
-[0;32mI (2147) wifi:Init dynamic rx buffer num: 32[0m
-[0;32mI (2147) wifi_init: rx ba win: 6[0m
-[0;32mI (2147) wifi_init: accept mbox: 6[0m
-[0;32mI (2157) wifi_init: tcpip mbox: 32[0m
-[0;32mI (2157) wifi_init: udp mbox: 6[0m
-[0;32mI (2157) wifi_init: tcp mbox: 6[0m
-[0;32mI (2157) wifi_init: tcp tx win: 5760[0m
-[0;32mI (2167) wifi_init: tcp rx win: 5760[0m
-[0;32mI (2167) wifi_init: tcp mss: 1440[0m
-[0;32mI (2167) wifi_init: WiFi IRAM OP enabled[0m
-[0;32mI (2177) wifi_init: WiFi RX IRAM OP enabled[0m
-[0;33mW (2177) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
-[0;32mI (2197) phy_init: phy_version 4860,6b7a6e5,Feb  6 2025,14:47:07[0m
-[0;32mI (2257) wifi:mode : sta (c0:49:ef:d2:0f:d0)[0m
-[0;32mI (2257) wifi:enable tsf[0m
-[0;32mI (2257) wifi_net: wifi_sta initalization is complete, waiting for connection...[0m
-[0;32mI (2267) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
-[0;32mI (2267) wifi:state: init -> auth (0xb0)[0m
-[0;32mI (2277) wifi:state: auth -> assoc (0x0)[0m
-[0;32mI (2277) wifi:state: assoc -> run (0x10)[0m
-[0;32mI (2297) wifi:<ba-add>idx:0 (ifx:0, 5c:63:bf:c7:8e:d9), tid:0, ssn:0, winSize:64[0m
-[0;32mI (2307) wifi:connected with TurkTelekom_TEFC5, aid = 13, channel 11, BW20, bssid = 5c:63:bf:c7:8e:d9[0m
-[0;32mI (2307) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
-[0;32mI (2327) wifi:pm start, type: 1[0m
-
-[0;32mI (2327) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
-[0;32mI (2327) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
-I BOD: Brownout    
