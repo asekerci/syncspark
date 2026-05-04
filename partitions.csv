@@ -1,0 +1,13 @@
+# SynchroSpark Project partition table
+#
+# --> ESP-IDF requires partitions to be aligned to a 4 KB boundary 
+# (multiples of 0x1000). In addition to this:
+# --> Partitions of type "app" have to be placed at offsets 
+# aligned to 64 KB boundary (multiples of 0x10000).
+#
+# Name,   Type, SubType, Offset,  Size, Flags
+nvs,      data, nvs,     0x9000,  0x6000,
+phy_init, data, phy,     0xf000,  0x1000,
+factory,  app,  factory, 0x10000, 0xF8000,
+ota_data, data, ota,     0x108000,0x2000,
+ota_0,    app,  ota_0,   0x110000,0x2F0000 

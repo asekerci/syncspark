@@ -1,0 +1,44 @@
+#define SYNCHROSPARK_NET_SERVER "192.168.11.100"    // sinope on Beryl network
+
+// System uses the following information for 
+// Over-the-air (OTA) upgrades:
+//
+#define CHECKSUM_FILE_BASE_URL "http://" SYNCHROSPARK_NET_SERVER ":8000/"
+#define BINARY_FILE_BASE_URL   CHECKSUM_FILE_BASE_URL
+//
+// The following command:
+//
+// python3 -m http.server --bind 0.0.0.0 8000 --directory /home/ahmet/projects/syncspark/system/ota
+// 
+// allows other devices in the local network to access the server using 
+// a. server's actual IP address, like http://192.168.11.100:8000, or
+// b. or locally via http://localhost:8000 or http://127.0.0.1:8000.
+
+// MQTT broker address
+#define MQTT_BROKER_IP_ADDR SYNCHROSPARK_NET_SERVER
+// Use this command to receive a message when a sparknode boots up:
+//    mosquitto_sub -h localhost -t "arena/robot1/status"
+
+// Log messages are sent to this destination:
+//
+#define LOG_SERVER_IP_ADDR   SYNCHROSPARK_NET_SERVER 
+#define LOG_SERVER_UDP_PORT  10001
+// Run this python script on a terminal on your Linux server to see the 
+// log messages:
+//   log_listener.py 
+// (It is in the folder system/utilities)
+//
+
+// Image frames are sent to this destination:
+//
+#define DESTINATION_IP_ADDR  SYNCHROSPARK_NET_SERVER
+#define DESTINATION_UDP_PORT 10000         
+#define UDP_PACKET_SIZE      1024            // Maximum UDP packet size
+// Run this program on a terminal on your Linux server to receive 
+// the images: 
+//   python3 rcv_frames_udp.py
+// (Currently it is in sparknode_cam_wifi project folder)
+//
+
+
+
