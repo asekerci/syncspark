@@ -1,28 +1,46 @@
 # `sdkconfig` and Build System Integration
 
-When building a project, the ESP-IDF build system
+ESP-IDF stores the project's configuration in the `sdkconfig` file located in
+the project root.
 
-1.  Loads default configuration values from Kconfig files,
-2.  Applies any overrides from `sdkconfig.defaults`, and finally
-3.  Loads settings from `sdkconfig` if it exists.
+Configuration values originate from three places:
 
-Values in `sdkconfig.defaults` serve as additional defaults and are ignored if
-the corresponding option is already defined in `sdkconfig`. This ensures that
-manual changes made in `sdkconfig` (for example, via menuconfig) always take
-precedence.
+1. Default values defined in the ESP-IDF Kconfig files.
+2. Optional overrides in `sdkconfig.defaults`.
+3. User-selected values stored in `sdkconfig`.
 
-The `sdkconfig` file can be generated or updated in two ways:
+If `sdkconfig` already exists, it is treated as the authoritative project
+configuration. Any configuration options that are missing (for example, because
+a newer ESP-IDF version introduced additional options) are initialized from
+`sdkconfig.defaults` if present, otherwise from the Kconfig defaults. The
+updated configuration is then written back to `sdkconfig`.
 
--   **Interactively:** Using the `idf.py menuconfig` command, which launches a
-    text-based interface for configuring project settings related to ESP-IDF
-    components and the target chip. After saving changes in this interface, the
-    `sdkconfig` file in the project's root directory is updated to reflect the
-    new configuration.
--   **Non-interactively:** By running `idf.py reconfigure`, which (re)generates
-    the `sdkconfig` file based on the current configuration and Kconfig
-    defaults, without launching the interactive menu.
+The `sdkconfig` file can be created or updated in several ways:
 
-Also note that, if you change the target chip using
-`idf.py set-target <target>`, the build directory is cleared and a new
-`sdkconfig` file is created for the selected target. The previous configuration
-is saved as `sdkconfig.old`.
+- **Interactively:** `idf.py menuconfig` launches the configuration interface.
+  When the configuration is saved, the `sdkconfig` file is updated.
+
+- **Non-interactively:** `idf.py reconfigure` reruns the configuration process
+  and updates `sdkconfig` if necessary, without opening the interactive menu.
+
+When changing the target chip using
+
+    idf.py set-target <target>
+
+the build directory is deleted, the existing `sdkconfig` is preserved as
+`sdkconfig.old`, and a new `sdkconfig` is generated for the selected target
+using the available defaults and any applicable existing settings.
+
+## Recommended Workflow
+
+1. `idf.py menuconfig` (this is the interactive step)
+2. Build and test the board, go back to (1) until all board parameters
+   are set properly.
+3. `idf.py save-defconfig` (this command will generate a `sdkconfig.defaults`)
+4. Inspect `sdkconfig.defaults`
+5. Commit `sdkconfig.defaults to Git`
+
+The inspection step is important because save-defconfig sometimes includes
+options we don't really care about (for example, settings that happened
+to change between ESP-IDF releases). We can safely remove those if we
+don't want to lock them in.
