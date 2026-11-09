@@ -179,7 +179,8 @@ factory partition via a USB cable.
   <img src="./docs/system/sparkverse_architecture.webp" alt="Robotics Lab testbed" width="80%">
 </p>
 
-<p align="center"><em>The robot-network setup at the Monash Optical Wireless Systems Laboratory, alongside a Unity-based simulation environment. The simulation has a separate [GitHub repository](https://github.com/vedantA04/sparkverse).</em></p>
+<p align="center"><em>The robot-network setup at the Monash Optical Wireless Systems Laboratory, alongside a Unity-based simulation environment. The simulation has a separate
+GitHub repository: <tt>https://github.com/vedantA04/sparkverse</tt>.</em></p>
 
 ### Remote Control of SparkNodes with MQTT
 
