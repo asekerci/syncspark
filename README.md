@@ -71,7 +71,7 @@ dynamic art displays.
 
 ### Formation Control Algorithms
 
-Drawing on our past research in [formation control
+Based on our past research in [formation control
 techniques](https://sekerci.info/~ahmet/networked_robotics/history.html), we
 believe well-established decentralized algorithms are the right starting point
 for this platform. They let us study how simple local interaction rules can
