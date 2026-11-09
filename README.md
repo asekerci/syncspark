@@ -19,7 +19,7 @@
   - [Remote Control of SparkNodes with MQTT](#remote-control-of-sparknodes-with-mqtt)
   - [Over-the-Air (OTA) Method for Firmware Upgrades](#over-the-air-ota-method-for-firmware-upgrades)
 - [Programs for Testing and Demonstrating Various Functionalities](#programs-for-testing-and-demonstrating-various-functionalities)
-  - [OTA Enabled Programs](#ota-enabled-programs)
+  - [OTA-Enabled Programs](#ota-enabled-programs)
   - [Directly Flashable Programs](#directly-flashable-programs)
 - [Appendix A: Additional Steps to Create an ESP-IDF Project From Scratch](#appendix-a-additional-steps-to-create-an-esp-idf-project-from-scratch)
 - [Appendix B: ESP32-CAM Configuration](#appendix-b-esp32-cam-configuration)
@@ -27,84 +27,116 @@
 
 ## Introduction
 
-We[^1] are developing a network of low-cost mobile robots for exploring swarming, synchronization, and formation control algorithms, hence the name
-**SynchroSpark Swarm**. The project's short name is **SyncSpark**, which is
+We[^1] are developing a network of low-cost mobile robots for exploring swarming, synchronization, and formation control algorithms, hence the name **SynchroSpark Swarm**. The project's short name is **SyncSpark**, which is
 also the name of our main GitHub repository.
 
-Each robot, called a **SparkNode**, features a wheeled base with two motors and
-an ESP32-CAM AI-Thinker module. At present, the module is mounted in a fixed
-position, but we plan to place it on a motorized rotating platform in a future
-revision. That change will let us control the camera angle for 360-degree
-observation and better support the study of fully localized algorithms.
+Each robot, called a **SparkNode**, has a wheeled base with two motors and an
+AI-Thinker ESP32-CAM module. The module is currently mounted in a fixed position.
+In a future revision, we plan to place it on a motorized rotating platform so
+that we can control the camera angle for 360-degree observation and better
+support the study of fully localized algorithms.
 
 ## Project Objectives
 
-When we started designing the SparkNodes, our goal was to experiment with
+When we began designing the SparkNodes, our goal was to experiment with
 cooperative robotics and explore the intersection of art and technology, with a
-particular focus on collaborative robot art. To support that goal, we wanted a
-mobile robot platform that was low-cost, compact, practical to build in
-quantities of 30 to 40 units, well connected, and easy to track, at least at the
-level of relative pose.
+particular focus on collaborative robot art. To support this work, we set out to
+build a mobile robot platform that was low-cost, compact, practical to produce
+in quantities of 30 to 40 units, well connected, and easy to track, at least in
+terms of relative pose.
 
 These constraints shaped the project from the beginning. Because cost is a
 central concern, our robots do not rely on sophisticated sensors. Instead, we
-build on several low-cost localization strategies drawn from our past research,
-including:
+draw on several low-cost localization strategies from our earlier research:
 
-- The use of RGB LED rings and cameras, as described in [Partitioning de Bruijn
-  Graphs Into k-cycles for Robot Identification and
+- Identifying and tracking robots with RGB LED rings and cameras, as described
+  in [Partitioning de Bruijn Graphs Into k-cycles for Robot Identification and
   Tracking](https://sekerci.info/~ahmet/papers/de_bruijn_cycles.pdf) (T.
-  Grubman, Y. A. Sekercioglu, and D. Wood), and
-- Trilateration methods, as explored in
+  Grubman, Y. A. Sekercioglu, and D. Wood).
+- Trilateration, as explored in
   [Accurate Node Localisation in Ad Hoc Networks Using Directional Pulsed
   Infrared Light
   Communications](https://sekerci.info/~ahmet/pgrad-projects/joseph-thesis.pdf)
   (J. Violi, MEngSc. Thesis).
 
-The concepts developed in these studies provide the technical basis for implementing formation control algorithms on the swarm and, ultimately, creating coordinated dynamic art displays.
+Together, these studies provide a technical foundation for implementing
+formation-control algorithms on the swarm and, ultimately, creating coordinated
+dynamic art displays.
 
 <p align="center">
   <img src="./docs/images/photos/sparknode_time_lapse_01.webp" alt="Long-exposure image of two SparkNodes creating light trails during motion" width="60%">
 </p>
 
-<p align="center"><em>Long-exposure image of two SparkNodes moving randomly, illustrating the project's potential for collaborative robot art.</em></p>
+<p align="center"><em>A long-exposure image of two SparkNodes moving randomly, illustrating the project's potential for collaborative robot art.</em></p>
 
 ### Formation Control Algorithms
 
-Based on our past research in [formation control techniques](https://sekerci.info/~ahmet/networked_robotics/history.html), we believe that well-established decentralized algorithms are the right starting point for this platform. They allow us to study how simple local interaction rules can produce emergent collective behaviour. The [Boids algorithm](https://en.wikipedia.org/wiki/Boids) is a natural first example and will serve as our initial demonstration project.
+Drawing on our past research in [formation control
+techniques](https://sekerci.info/~ahmet/networked_robotics/history.html), we
+believe well-established decentralized algorithms are the right starting point
+for this platform. They let us study how simple local interaction rules can
+produce emergent collective behaviour. The [Boids
+algorithm](https://en.wikipedia.org/wiki/Boids) is a natural first example and
+will serve as our initial demonstration.
 
-Our second line of work is "Distributed Formation Control Using Computational Energy Minimization." This approach is inspired by our earlier work, [Virtual Localization for Mesh Network Routing](https://sekerci.info/~ahmet/mesh/virt_loc/) (N. Moore, Y. A. Sekercioglu, and G. K. Egan). In this approach, each robot moves toward a position that minimizes a local computational energy function, allowing formations to emerge without central coordination.
+Our second research direction, "Distributed Formation Control Using
+Computational Energy Minimization," builds on our earlier work, [Virtual
+Localization for Mesh Network
+Routing](https://sekerci.info/~ahmet/mesh/virt_loc/) (N. Moore, Y. A. Sekercioglu,
+and G. K. Egan). Each robot moves toward a position that minimizes a local
+computational energy function, allowing formations to emerge without central
+coordination.
 
-In our virtual localization study, static nodes iteratively estimated their positions by minimizing a local potential based on the virtual positions of their one-hop and two-hop neighbours, which were also computed iteratively. Although that idea was originally applied to sensor-network localization in support of geographic routing, the same principle can be adapted to mobile robots by translating virtual positions into real motion.
+In our virtual-localization study, static nodes estimated their positions
+iteratively by minimizing a local potential. This potential depended on the
+virtual positions of one-hop and two-hop neighbours, which were themselves
+estimated iteratively. Although originally developed for sensor-network
+localization to support geographic routing, the same principle can guide mobile
+robots: virtual positions can be translated into physical movement.
 
 ### Research Collaboration
 
-The project has also grown into a research collaboration with the [Shortest Path Lab (SPL)](https://pathfinding.ai) at Monash University, led by A/Prof Daniel Harabor. This collaboration focuses on building a mobile robot network for testing multi-agent pathfinding algorithms in realistic physical scenarios.
+The project has also developed into a research collaboration with the [Shortest
+Path Lab (SPL)](https://pathfinding.ai) at Monash University, led by A/Prof
+Daniel Harabor. The collaboration focuses on building a mobile robot network to
+test multi-agent pathfinding algorithms in realistic physical scenarios.
 
-SPL works on AI planning and heuristic search algorithms for single-agent and multi-agent pathfinding problems, including trip planning in transportation networks, motion planning and navigation for mobile robots, and automated warehouse logistics. SyncSpark provides a practical testbed for moving some of those ideas out of simulation and into embodied multi-robot experiments.
+SPL researches AI planning and heuristic search for single-agent and multi-agent
+pathfinding. Its areas of application include trip planning in transportation
+networks, motion planning and navigation for mobile robots, and automated
+warehouse logistics. SyncSpark provides a practical testbed for taking these
+ideas beyond simulation and into embodied multi-robot experiments.
 
-As part of this collaboration, we also extended the project into the mixed-reality world by creating [SparkVerse](./docs/system/sparkverse.md), a virtual environment for testing algorithms before physical implementation. Together, the physical SparkNode platform and SparkVerse allow us to study these ideas across both simulated and real-world settings.
+As part of this collaboration, we created
+[SparkVerse](./docs/system/sparkverse.md), a mixed-reality environment for
+testing algorithms before deploying them on physical robots. Together, SparkVerse
+and the SparkNode platform let us explore these ideas in simulated and
+real-world settings. [This slide pack](./docs/system/sparkverse_aug2026.pdf)
+shows how the physical, simulated, and mixed-reality systems fit together.
 
 ## Licensing
 
-This repository contains both software and hardware design materials, so its licensing is organized by content type.
+This repository contains both software and hardware design materials, which are
+licensed according to content type.
 
 - Software source code is licensed under the GNU General Public License v3. See [LICENSES/GPL-3.0.txt](./LICENSES/GPL-3.0.txt).
 - Hardware design files under [docs/hardware](./docs/hardware) are licensed under the CERN Open Hardware Licence Version 2 - Strongly Reciprocal. See [docs/hardware/README.md](./docs/hardware/README.md) and [LICENSES/CERN-OHL-S-2.0.txt](./LICENSES/CERN-OHL-S-2.0.txt).
 
-If a file or subdirectory carries a different license notice, that notice takes precedence for that material.
+If a file or subdirectory has a different license notice, that notice takes
+precedence for the material it covers.
 
 ## Project Structure and Terminology
 
 ### About the Repository
 
-This repository is organized as an umbrella project (or monorepo) that contains multiple ESP-IDF application projects and shared components:
+This repository is an umbrella project (or monorepo) containing multiple ESP-IDF
+applications and shared components:
 
 - **Umbrella Project (Monorepo):** The top-level directory (`syncspark`) that
   contains several ESP-IDF application projects and common components.
-- **Application Project (Subproject):** Each subdirectory under the umbrella
-  (e.g., `sparknode_cam_wifi`, `sparknode_ota_updater`) that represents a standalone
-  ESP-IDF project with its own `main` folder, `sdkconfig`, etc.
+- **Application Project (Subproject):** A subdirectory of the umbrella project
+  (e.g., `sparknode_cam_wifi` or `sparknode_ota_updater`) containing a standalone
+  ESP-IDF project with its own `main` folder, `sdkconfig`, and related files.
 - **Component:** Shared code or libraries (e.g., in `components/`) that can be
   reused by multiple application projects.
 
@@ -112,31 +144,31 @@ Throughout this documentation, these terms are used to distinguish between the
 overall repository, the individual ESP-IDF projects, and the reusable code
 modules.
 
-At a practical level, the top-level repository is centered around a small set of
-directories:
+The main directories in the repository are:
 
-- [components](./components/): shared ESP-IDF components reused across projects.
-- [docs](./docs/): hardware, architecture, and supporting project documentation.
-- [system](./system/): host-side utilities such as OTA packaging and log collection.
-- [sparkcore](./sparkcore/): the primary OTA-enabled firmware for SparkNodes.
-- [sparknode_ota_updater](./sparknode_ota_updater/README.md): the factory-partition OTA updater.
-- [get_esp32_chip_info](./get_esp32_chip_info/README.md): the simplest direct-flash sanity check for a board/toolchain.
+- [components](./components/): Shared ESP-IDF components used across projects.
+- [docs](./docs/): Hardware, architecture, and supporting project documentation.
+- [system](./system/): Host-side utilities, including OTA packaging and log collection.
+- [sparkcore](./sparkcore/): The primary OTA-enabled firmware for SparkNodes.
+- [sparknode_ota_updater](./sparknode_ota_updater/README.md): The factory-partition OTA updater.
+- [get_esp32_chip_info](./get_esp32_chip_info/README.md): A basic direct-flash check of a board and toolchain.
 
 ### AI Thinker ESP32-CAM Module
 
-We use the AI Thinker ESP32-CAM module, which is built around the original dual-core
-ESP32 chip (not the newer ESP32-S2, ESP32-S3, or ESP32-C3 variants). The module
-provides WiFi and Bluetooth capabilities and has the following specifications:
-a 240 MHz clock speed, 520 KB of RAM, 8 MB of PSRAM (SPIRAM)[^2], and 4 MB of flash memory.
+We use the AI Thinker ESP32-CAM module, which is built around the original
+dual-core ESP32 chip, not the newer ESP32-S2, ESP32-S3, or ESP32-C3 variants. It
+supports WiFi and Bluetooth and has a 240 MHz clock speed, 520 KB of RAM, 8 MB
+of PSRAM (SPIRAM)[^2], and 4 MB of flash memory.
 
 ### Software Development Platform
 
-We use the [Espressif IoT Development
-Framework (ESP-IDF)](https://github.com/espressif/esp-idf). [Visual Studio Code](https://code.visualstudio.com/), paired with the [ESP-IDF
-extension](https://docs.espressif.com/projects/vscode-esp-idf-extension/en/latest/),
-provides an effective development environment.
+We use the [Espressif IoT Development Framework
+(ESP-IDF)](https://github.com/espressif/esp-idf) to develop the firmware. Our
+development environment is [Visual Studio
+Code](https://code.visualstudio.com/) with the [ESP-IDF
+extension](https://docs.espressif.com/projects/vscode-esp-idf-extension/en/latest/).
 
-To test the toolchain, we use a small program called
+As a basic toolchain check, we use a small program called
 [`get_esp32_chip_info`](get_esp32_chip_info/README.md), which reports information
 about the chip and its capabilities. This program should be flashed directly to the
 factory partition via a USB cable.
@@ -147,7 +179,7 @@ factory partition via a USB cable.
   <img src="./docs/system/sparkverse_architecture.webp" alt="Robotics Lab testbed" width="80%">
 </p>
 
-<p align="center"><em>The robot-network setup at the Monash Optical Wireless Systems Laboratory. The diagram also shows the Unity-based simulation environment. The Unity simulation environment has its own separate GitHub repository, which is currently under preparation.</em></p>
+<p align="center"><em>The robot-network setup at the Monash Optical Wireless Systems Laboratory, alongside a Unity-based simulation environment. The simulation has a separate [GitHub repository](https://github.com/vedantA04/sparkverse).</em></p>
 
 ### Remote Control of SparkNodes with MQTT
 
@@ -156,92 +188,75 @@ We are progressively adding MQTT commands for the remote control of SparkNodes. 
 
 ### Over-the-Air (OTA) Method for Firmware Upgrades
 
-We primarily use the over-the-air (OTA) method for firmware upgrades, as
-described below. Our OTA firmware update method offers two main advantages:
+We primarily use over-the-air (OTA) updates to upgrade firmware. This approach
+offers two main advantages:
 
-1. It eliminates the need for USB cable connections, allowing us to quickly
-   deploy firmware updates and bring a SparkNode online for testing.
-2. Since we plan to have at least 30 SparkNodes in our SynchroSpark Swarm, the OTA method enables us to efficiently update firmware on all of them.
+1. SparkNodes can receive updates without a USB connection, allowing us to
+  deploy firmware quickly and bring them online for testing.
+2. We plan to have at least 30 SparkNodes in the SynchroSpark Swarm, and OTA
+  lets us update firmware across the fleet efficiently.
 
-However, the OTA method requires a WiFi LAN, and directly flashing programs is
-sometimes more useful for testing basic functionality. For that reason, we group our ESP-IDF projects into two categories:
+OTA requires a WiFi LAN. For basic functionality tests, direct USB flashing can
+be more convenient. Accordingly, we group our ESP-IDF projects into two
+categories:
 
-- [OTA enabled programs](#ota-enabled-programs), and
+- [OTA-enabled programs](#ota-enabled-programs), and
 - [Directly flashable programs](#directly-flashable-programs)
 
-We provide the example application `sparknode_sample_ota_app`, which
-demonstrates the basic operation of OTA-enabled firmware. When
-`sparknode_ota_updater` is installed in the factory partition of the ESP32-CAM, all other applications should be built from `sparknode_sample_ota_app` as a starting point. These applications are designed to be delivered via OTA updates and should not be flashed directly to the chip over USB.
+The example application `sparknode_sample_ota_app` demonstrates the basic
+operation of OTA-enabled firmware and can serve as a starting point for new
+applications. Once `sparknode_ota_updater` is installed in the ESP32-CAM's
+factory partition, other OTA-enabled applications can be built from this example.
+These applications are intended for OTA delivery and should not be flashed
+directly to the chip over USB.
 
-See [sparknode_ota_updater/README.md](sparknode_ota_updater/README.md) for
-detailed information about our OTA firmware update scheme.
+See [sparknode_ota_updater/README.md](sparknode_ota_updater/README.md) for details
+about the OTA update process.
 
-[Follow these steps](./docs/software/ota.md) to create OTA-capable firmware. If you need to create a new ESP-IDF project from scratch, see [Appendix A: Additional Steps to Create an ESP-IDF Project From
-Scratch](#appendix-a-additional-steps-to-create-an-esp-idf-project-from-scratch).
+Follow the [OTA workflow](./docs/software/ota.md) to create OTA-capable firmware.
+If you are starting from scratch, see [Appendix A: Additional Steps to Create an
+ESP-IDF Project From Scratch](#appendix-a-additional-steps-to-create-an-esp-idf-project-from-scratch).
 
 ## Programs for Testing and Demonstrating Various Functionalities
 
-### OTA Enabled Programs
+### OTA-Enabled Programs
 
-- **[`sparkcore`](sparkcore/)**: The main firmware we run on
-  the SparkNodes.
-- **[`sparknode_sample_ota_app`](sparknode_sample_ota_app/README.md)**: Used for
-  testing and demonstrating the OTA firmware update method. It can serve as
-  a starting point for new SyncSpark firmware.
-- **[`sparknode_ledring`](sparknode_ledring/README.md)**: For testing the RGB LED
-  ring control routines.
-- **[`sparknode_mqtt`](sparknode_mqtt/README.md)**: For experimenting
-  with MQTT. The `scripts` directory contains examples of
-  SparkNode remote control.
-- **[`sparknode_drive_test`](sparknode_drive_test/README.md)**: For testing the
-  motor drivers.
-- **[`sparknode_cam_wifi`](sparknode_cam_wifi/README.md)**: Demonstrates basic
-  networking by periodically sending captured image frames to a remote host
-  via UDP datagrams over WiFi.
-- **[`sparknode_icm20948`](sparknode_icm20948/README.md)**: Performs sensor
-  calibration and data acquisition using the ICM20948 9-axis IMU and BMP388
-  barometric pressure sensors, and applies the Madgwick sensor fusion
-  algorithm for accurate orientation estimation.
-- **[`sparknode_i2c_test`](sparknode_i2c_test/README.md)**: For testing I2C
-  communication with the motor controllers, BMP388 sensor, and GY-912 IMU board,
-  and for verifying RGB LED ring operation.
-- **[`sparknode_hall_sensors`](sparknode_hall_sensors/README.md)**: Tests the
-  hall-effect sensor routines using interrupts.
+- **[`sparkcore`](sparkcore/)**: The main firmware used on SparkNodes.
+- **[`sparknode_sample_ota_app`](sparknode_sample_ota_app/README.md)**: Demonstrates OTA firmware updates and provides a starting point for new SyncSpark firmware.
+- **[`sparknode_ledring`](sparknode_ledring/README.md)**: Tests the RGB LED ring control routines.
+- **[`sparknode_mqtt`](sparknode_mqtt/README.md)**: Provides an MQTT test application; its `scripts` directory contains SparkNode remote-control examples.
+- **[`sparknode_drive_test`](sparknode_drive_test/README.md)**: Tests the motor drivers.
+- **[`sparknode_cam_wifi`](sparknode_cam_wifi/README.md)**: Demonstrates basic networking by periodically sending captured image frames to a remote host as UDP datagrams over WiFi.
+- **[`sparknode_icm20948`](sparknode_icm20948/README.md)**: Calibrates the sensors, collects data from the ICM20948 9-axis IMU and BMP388 barometric pressure sensors, and applies the Madgwick sensor-fusion algorithm to estimate orientation.
+- **[`sparknode_i2c_test`](sparknode_i2c_test/README.md)**: Tests I2C communication with the motor controllers, BMP388 sensor, and GY-912 IMU board, and verifies RGB LED ring operation.
+- **[`sparknode_hall_sensors`](sparknode_hall_sensors/README.md)**: Tests the hall-effect sensor routines using interrupts.
 
 ### Directly Flashable Programs
 
-- **[`get_esp32_chip_info`](get_esp32_chip_info/README.md)**: Reports on the
-  configuration of the chip and performs quick checks.
-- **[`sparknode_ota_updater`](sparknode_ota_updater/README.md)**: Flashed
-  directly into the factory partition once to enable OTA firmware updates. It must
-  remain resident in the factory partition for proper operation of OTA firmware
-  updates.
-- **[`glow_ledring`](glow_ledring/README.md)**: Illuminates the RGB LED ring
-  with the assigned de Bruijn sequence (we allocate unique IDs to each
-  SparkNode by using their base MAC addresses).
-- **[`opti_pose`](opti_pose/README.md)**: Periodically captures images. We plan
-  to use it to develop pose estimation algorithms that will run directly on the
-  ESP32-CAM.
+- **[`get_esp32_chip_info`](get_esp32_chip_info/README.md)**: Reports the chip configuration and performs basic checks.
+- **[`sparknode_ota_updater`](sparknode_ota_updater/README.md)**: Flash this program directly to the factory partition to enable OTA updates. It must remain there for OTA updates to work.
+- **[`glow_ledring`](glow_ledring/README.md)**: Illuminates the RGB LED ring with the assigned de Bruijn sequence. Each SparkNode receives a unique ID derived from its base MAC address.
+- **[`opti_pose`](opti_pose/README.md)**: Periodically captures images for developing pose-estimation algorithms that will run directly on the ESP32-CAM.
 
 ## Appendix A: Additional Steps to Create an ESP-IDF Project From Scratch
 
-1. **Navigate to the main SyncSpark project directory:**
+1. **Go to the SyncSpark repository directory:**
 
    ```bash
    cd $HOME/projects/syncspark/
    ```
 
-2. **Create a new project:**
+1. **Create a project:**
 
    ```bash
    idf.py create-project my_esp_project
    ```
 
-   Replace `my_esp_project` with your desired project name. This command
-   creates a directory named `my_esp_project` under the current directory and
-   populates it with starter files and subdirectories.
+   Replace `my_esp_project` with your chosen project name. The command creates a
+   directory with that name and populates it with starter files and
+   subdirectories.
 
-3. **Set target:**
+1. **Set the target:**
 
    ```bash
    cd my_esp_project && idf.py set-target esp32
@@ -254,33 +269,30 @@ After creating your new project, follow the remaining steps in the
 
 ## Appendix B: ESP32-CAM Configuration
 
-Before generating a binary to run on a SparkNode, several ESP32 chip
-properties must be configured, and a custom partition table must be
-established. To accomplish this, we created an `sdkconfig.defaults` file.
-Using this file, the toolchain configures the following properties correctly:
+Before building firmware for a SparkNode, configure several ESP32 properties and
+select a custom partition table. The `sdkconfig.defaults` file in this
+repository sets the following options:
 
-- **Serial flasher config**: Increases the flash size to 4 MB.
-- **Serial flasher config → Flash SPI speed**: Increases to 80 MHz.
-- **Component config → ESP System Settings**: Increases the clock speed to 240
-  MHz.
+- **Serial flasher config**: Sets the flash size to 4 MB.
+- **Serial flasher config → Flash SPI speed**: Sets the speed to 80 MHz.
+- **Component config → ESP System Settings**: Sets the clock speed to 240 MHz.
 - **Component config → ESP PSRAM**: Enables support for PSRAM.
 - **Component config → ESP PSRAM → Support for external, SPI connected RAM →
   SPI_RAM config → set RAM speed**: Sets to 80 MHz.
 - **Partition Table → custom partition table CSV**: Selects this option and
   sets 0x8000 as the "Offset of partition table".
 
-The standard `sdkconfig.defaults` file is located in the top-level directory of
-the SynchroSpark project. The top directory of each individual ESP-IDF project
-contains a symbolic link that points to it.
+The standard `sdkconfig.defaults` file is in the top-level directory of the
+SynchroSpark repository. Each ESP-IDF project directory contains a symbolic
+link to this file.
 
-See [sdkconfig and configuration
-management](docs/software/about_sdkconfig.md) for further details.
+See [sdkconfig and configuration management](docs/software/about_sdkconfig.md)
+for more details.
 
 ## Appendix C: Custom Partition Table
 
-All OTA-enabled programs use the standard partition table shown below. The main
-directory of each OTA-enabled program contains a symbolic link to this standard
-partition table.
+All OTA-enabled programs use the standard partition table shown below. Each
+program's main directory contains a symbolic link to this table.
 
 ```bash
     # SynchroSpark Project partition table
@@ -297,11 +309,11 @@ partition table.
     ota_0,    app,  ota_0,   0x110000,0x2F0000
 ```
 
-Note that the directly flashable programs use the built-in default partition
-table.
+Directly flashable programs use the built-in default partition table.
 
 ## Footnotes
 
 [^1]: Ahmet Sekercioglu and Ismet Atalar, creators of the SyncSpark project.
 
-[^2]: Unfortunately, the current version of ESP-IDF allows us to use only half of the available PSRAM capacity.
+[^2]: The current version of ESP-IDF allows us to use only half of the available
+PSRAM capacity.
