@@ -108,7 +108,7 @@ warehouse logistics. SyncSpark provides a practical testbed for taking these
 ideas beyond simulation and into embodied multi-robot experiments.
 
 As part of this collaboration, we created
-[SparkVerse](./docs/system/sparkverse.md), a mixed-reality environment for
+[SparkVerse](./docs/system/sparkverse_architecture.webp), a mixed-reality environment for
 testing algorithms before deploying them on physical robots. Together, SparkVerse
 and the SparkNode platform let us explore these ideas in simulated and
 real-world settings. [This slide pack](./docs/system/sparkverse_aug2026.pdf)
